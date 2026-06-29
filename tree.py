@@ -1,11 +1,45 @@
-arr = [1,2,3,4,5]
+patterns = ["a","a","iik"]
+word = "iiik"
+ans = 0
+for i in range(len(patterns)):
+    if len(patterns[i]) > len(word):
+        pass
+    else:
+        flag = False
+        j = 0
+        k = 0
+        count = 0
+        while k < len(word) :
+            if patterns[i][j] != word[k]:
+                if flag == True:
+                    j = 0
+                    k = k - count + 1
+                    count = 0
+                    flag = False
+                else:
+                    k = k + 1
+            else:
+                if flag == False:
+                    flag = True
+                j = j + 1
+                k = k + 1
+                count += 1
+            if j >= len(patterns[i]):
+                break
+        if j == len(patterns[i]):
+            ans += 1
+print(ans)
+
+
+
+'''arr = [1,2,3,4,5]
 arr.sort()
 for i in range(1,len(arr)):
     if abs(arr[i-1]-arr[i]) <= 1:
         pass
     else:
         arr[i] = arr[i-1] + 1
-print(arr)
+print(arr)'''
 
 
 
