@@ -1,4 +1,101 @@
-patterns = ["a","a","iik"]
+s = "abcabc"
+hash1 = {}
+ans = 0
+start = 0
+end = 0
+flag = False
+while end < len(s):
+    if len(hash1) < 3:
+        if s[end] not in hash1:
+            hash1[s[end]] = 1
+        else:
+            hash1[s[end]] += 1
+        end += 1
+    else:
+        # end -= 1
+        if hash1[s[start]] >= 1:
+            hash1[s[start]] -= 1
+            if hash1[s[start]] == 0:
+                del hash1[s[start]]
+            ans = ans + (len(s) - (end))
+            start += 1
+        else:
+            if s[end] not in hash1:
+                hash1[s[end]] = 1
+            else:
+                hash1[s[end]] += 1
+            end += 1
+# end -= 1
+print(ans)
+
+
+'''s = "abbcc"
+ans = 0
+prev = 0
+for i in range(len(s)-2):
+    set1 = set()
+    set1.add(s[i])
+    set1.add(s[i+1])
+    set1.add(s[i+2])
+    if len(set1) == 3:
+        cal = (i - prev) + 1
+        ans += cal
+        prev = i + 1
+        cal = len(s) - (i+3)
+        ans += cal
+print(ans)
+'''
+
+
+
+
+
+
+'''
+s = "abbbacc"
+m = None
+n = None
+o = None
+i = 0
+set1 = set()
+prev = 0
+ans = 0
+while i < len(s):
+    if s[i] not in set1:
+        if m is None:
+            m = i
+        elif n is None:
+            n = i
+        else:
+            o = i
+        set1.add(s[i])
+    if len(set1) == 3:
+        print(m,n,o)
+        cal = m - prev
+        ans += cal
+        prev = m + 1
+        # cal = (n - m) - 1
+        # ans += cal
+        # cal = (o - n) - 1
+        # ans += cal
+        cal = len(s) - o
+        ans += cal
+        m = n
+        n = o
+        i = i + 1
+        o = i
+    else:
+        i = i + 1
+print(ans)'''
+
+
+
+
+
+
+
+
+'''patterns = ["a","a","iik"]
 word = "iiik"
 ans = 0
 for i in range(len(patterns)):
@@ -28,7 +125,7 @@ for i in range(len(patterns)):
                 break
         if j == len(patterns[i]):
             ans += 1
-print(ans)
+print(ans)'''
 
 
 
