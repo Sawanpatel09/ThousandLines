@@ -1,4 +1,27 @@
-s = "abcabc"
+s = "   -673"
+c
+    print(int(ans))
+else:
+    print(0)
+
+
+
+
+
+
+
+
+'''s = "25525511135"
+if len(s) > 12:
+    print([])
+else:'''
+
+
+
+
+
+
+'''s = "abcabc"
 hash1 = {}
 ans = 0
 start = 0
@@ -26,7 +49,7 @@ while end < len(s):
                 hash1[s[end]] += 1
             end += 1
 # end -= 1
-print(ans)
+print(ans)'''
 
 
 '''s = "abbcc"
