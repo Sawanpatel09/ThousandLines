@@ -1,5 +1,40 @@
 s = "   -673"
-c
+int_found = False
+ans = ""
+neg_infi = 0
+pos_infi = 0
+for i in range(len(s)):
+    if "0" <= s[i] <= "9":
+        if int_found == False:
+            int_found = True
+        ans = ans + s[i]
+    else:
+        if int_found == False:
+            if ans == "" and (s[i] == "+" or s[i] == "-"):
+                ans = s[i]
+            elif ans == "" and s[i] == " ":
+                pass
+            else:
+                break
+        else:
+            break
+    if ans and ("0" <= ans[-1] <= "9"):
+        if int(ans) < 0:
+            if -2 ** (31) >= int(ans):
+                neg_infi = True
+                break
+        else:
+            if ((2 ** 31) - 1) <= int(ans):
+                pos_infi = True
+                break
+if ans and "0" <= ans[-1] <= "9":
+    ans = int(ans)
+    if pos_infi:
+        while ((2 ** 31) - 1) != ans:
+            ans -= 1
+    elif neg_infi:
+        while (-2 ** 31) != ans:
+            ans += 1
     print(int(ans))
 else:
     print(0)
