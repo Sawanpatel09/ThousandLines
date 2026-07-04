@@ -1,4 +1,72 @@
-s = "   -673"
+nums = [1000000000,1000000000,1000000000,1000000000]
+target = -294967296
+nums.sort()
+ans_sum = []
+for k in range(len(nums)):
+    for l in range(k+1,len(nums)):
+        i = l + 1
+        j = len(nums) - 1
+        while i < j:
+            cal = nums[k] + nums[l] + nums[i] + nums[j]
+            if target > cal:
+                i = i + 1
+            elif target < cal:
+                j = j - 1
+            else:
+                list1 = [nums[k],nums[l],nums[i],nums[j]]
+                list1 = tuple(list1)
+                ans_sum.append(list1)
+                j = j - 1
+set1 = set(ans_sum)
+ans_sum = list(set1)
+print(ans_sum)
+
+
+
+
+
+
+
+'''
+nums = [4,0,5,3,3,0,-4]
+target = -2
+nums.sort()
+min_dis_from_target = float("inf")
+ans_sum = 0
+for k in range(len(nums)):
+    i = k + 1
+    j = len(nums) - 1
+    while i < j:
+        cal = nums[k] + nums[i] + nums[j]
+        print(cal,nums[k],nums[i],nums[j])
+        cal_min_distance = 0
+        if cal < target:
+            if cal <= 0 <= target:
+                cal_min_distance = abs(cal)
+                cal_min_distance += target
+            else:
+                cal_min_distance = abs(target - cal)
+            i = i + 1
+        else:
+            if target <= 0 <= cal:
+                cal_min_distance = abs(target)
+                cal_min_distance += cal
+            else:
+                cal_min_distance = abs(cal-target)
+            j = j - 1
+        if min_dis_from_target > cal_min_distance:
+            min_dis_from_target = cal_min_distance
+            ans_sum = cal
+
+print(ans_sum)
+'''
+
+
+
+
+
+
+'''s = "   -673"
 int_found = False
 ans = ""
 neg_infi = 0
@@ -37,7 +105,7 @@ if ans and "0" <= ans[-1] <= "9":
             ans += 1
     print(int(ans))
 else:
-    print(0)
+    print(0)'''
 
 
 
