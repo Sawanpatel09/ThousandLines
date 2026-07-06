@@ -1,4 +1,41 @@
-nums = [1000000000,1000000000,1000000000,1000000000]
+intervals = [[1,2],[1,4],[3,4]]
+coverd = 0
+j = 0
+intervals.sort()
+for i in range(1,len(intervals)):
+    a = intervals[j]
+    b = intervals[i]
+    if a[0] < b[0] and a[1] < b[1]:
+        j = i
+    else:
+        if a[0] == b[0] or a[1] == b[1]:
+            j = i
+        coverd += 1
+print(len(intervals)-coverd)
+
+
+
+
+
+
+
+
+
+
+
+'''x = 121
+n = x
+ans = 0
+while n != 0:
+    rem = n % 10
+    ans = (ans * 10) + rem
+    n = n // 10
+print(ans)'''
+
+
+
+
+'''nums = [1000000000,1000000000,1000000000,1000000000]
 target = -294967296
 nums.sort()
 ans_sum = []
@@ -19,7 +56,7 @@ for k in range(len(nums)):
                 j = j - 1
 set1 = set(ans_sum)
 ans_sum = list(set1)
-print(ans_sum)
+print(ans_sum)'''
 
 
 
