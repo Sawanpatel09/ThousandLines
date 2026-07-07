@@ -1,4 +1,20 @@
-intervals = [[1,2],[1,4],[3,4]]
+n = 10203004
+sum1 = 0
+x = ""
+str1 = str(n)
+for i in range(len(str1)):
+    if str1[i] != "0":
+        sum1 = sum1 + int(str1[i])
+        x = x + str1[i]
+
+
+
+
+
+
+
+
+'''intervals = [[1,2],[1,4],[3,4]]
 coverd = 0
 j = 0
 intervals.sort()
@@ -12,7 +28,7 @@ for i in range(1,len(intervals)):
             j = i
         coverd += 1
 print(len(intervals)-coverd)
-
+'''
 
 
 
