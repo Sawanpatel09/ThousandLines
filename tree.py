@@ -1,11 +1,53 @@
-n = 10203004
+s = "9876543210"
+queries = [[0,9]]
+prefix = [[0,0,0]]
+sum1 = 0
+str1 = 0
+count = 0
+for i in range(len(s)):
+    if s[i] != "0":
+        str1 = (str1 * 10) + int(s[i])
+        sum1 = sum1 + int(s[i])
+        count += 1
+    prefix.append([str1,sum1,count])
+print(prefix)
+mod = ((10**9) + 7)
+ans = []
+for item in queries:
+    if item[0] == item[1]:
+        ans.append(int(s[item[0]]) * int(s[item[1]]))
+        continue
+    a = item[0]
+    b = (item[1]) + 1
+    check1 = 0
+    if prefix[a][2] == 0:
+        check1 = 0
+    else:
+        check1 = 10 ** (prefix[b][2] - prefix[a][2])
+    cal = (prefix[a][0] * check1)
+    cal1 = prefix[b][0] - cal
+    cal2 = prefix[b][1] - prefix[a][1]
+    ans1 = cal1 * cal2
+    ans1 = ans1 % mod
+    ans.append(ans1)
+print(ans)
+
+
+
+
+
+
+
+
+
+'''n = 10203004
 sum1 = 0
 x = ""
 str1 = str(n)
 for i in range(len(str1)):
     if str1[i] != "0":
         sum1 = sum1 + int(str1[i])
-        x = x + str1[i]
+        x = x + str1[i]'''
 
 
 
