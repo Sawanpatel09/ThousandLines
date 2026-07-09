@@ -1,4 +1,41 @@
-s = "9876543210"
+nums = [5,7,7,8,8,8,10]
+target = 8
+i = 0
+j = len(nums)
+lower = len(nums) - 1
+upper = 0
+while i < j:
+    mid = (i + j)//2
+    if nums[mid] < target:
+        i = mid + 1
+    elif nums[mid] > target:
+        j = mid
+    else:
+        lower = min(mid,lower)
+        j = mid
+i = 0
+j = len(nums)
+while i < j:
+    mid = (i + j)//2
+    if nums[mid] < target:
+        i = mid + 1
+    elif nums[mid] > target:
+        j = mid
+    else:
+        upper = max(mid,lower)
+        i = mid + 1
+print(lower)
+print(upper)
+
+
+
+
+
+
+
+
+
+'''s = "9876543210"
 queries = [[0,9]]
 prefix = [[0,0,0]]
 sum1 = 0
@@ -30,7 +67,7 @@ for item in queries:
     ans1 = cal1 * cal2
     ans1 = ans1 % mod
     ans.append(ans1)
-print(ans)
+print(ans)'''
 
 
 
