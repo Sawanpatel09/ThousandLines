@@ -1,4 +1,70 @@
-nums = [5,7,7,8,8,8,10]
+s =  "2[abc]3[cd]ef"
+stack1 = []
+stack2 = []
+int_deccode = ""
+for i in range(len(s)):
+    if "0" <= s[i] <= "9":
+        int_deccode = int_deccode + s[i]
+    else:
+        if int_deccode != "":
+            stack1.append(int(int_deccode))
+            int_deccode = ""
+        if s[i] == "]":
+            ans = ""
+            # j = len(stack2) - 1
+            while True:
+                if stack2[-1] == "[":
+                    ans = ans * stack1[-1]
+                    stack1.pop()
+                    stack2.pop()
+                    stack2.append(ans)
+                    ans = ""
+                    break
+                else:
+                    ans = stack2[-1] + ans
+                    stack2.pop()
+        else:
+            stack2.append(s[i])
+print(stack2)
+
+
+
+
+
+
+
+
+
+
+
+
+'''arr = [40,10,20,30,30,40,20]
+for i in range(len(arr)):
+    arr[i] = [arr[i],i]
+arr.sort()
+ans = [0] * len(arr)
+count = 1
+for i in range(len(arr)-1):
+    if arr[i][0] != arr[i+1][0]:
+        ans[arr[i][1]] = count
+        count += 1
+    else:
+        ans[arr[i][1]] = count
+    if i == len(arr) - 2:
+        ans[arr[i + 1][1]] = count
+print(ans)'''
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [5,7,7,8,8,8,10]
 target = 8
 i = 0
 j = len(nums)
@@ -25,7 +91,7 @@ while i < j:
         upper = max(mid,lower)
         i = mid + 1
 print(lower)
-print(upper)
+print(upper)'''
 
 
 
