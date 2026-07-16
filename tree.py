@@ -1,4 +1,159 @@
-s =  "2[abc]3[cd]ef"
+'''nums = [3,6,2,8]
+import math
+max1 = float('-inf')
+gcd_prefix = []
+for i in range(len(nums)):
+    max1 = max(max1,nums[i])
+    cal = math.gcd(nums[i], max1)
+    gcd_prefix.append(cal)
+gcd_prefix.sort()
+i = 0
+j = len(gcd_prefix) - 1
+total = 0
+while i < j:
+    cal = math.gcd(gcd_prefix[i],gcd_prefix[j])
+    total += cal
+    i = i + 1
+    j = j - 1
+print(total)'''
+
+
+
+
+
+
+
+
+
+'''nums1_u = [1,2,1,2,1,2,3,4,5,7,10,11]
+nums2_u = [1,1,1,1,4,4,5,2,9,1,90,101]
+set_nums1 = set(nums1_u)
+set_nums2 = set(nums2_u)
+print(set_nums1,set_nums2)
+set1 = set()
+# nums3 = nums1_u + nums2_u
+def removal(nums,check_set,pair_check):
+    hash1 = {}
+    from collections import deque
+    half_lenght = len(nums)//2
+    for item in nums:
+        if item not in hash1:
+            hash1[item] = 1
+        else:
+            hash1[item] += 1
+    list1 = []
+    for item in hash1.items():
+        list1.append(list(item))
+    list1.sort(key=lambda a:a[1])
+    list1 = deque(list1)
+    count_lenght = 0
+    record = []
+    while count_lenght < half_lenght and list1:
+        if list1[0][1] == 1:
+            record.append(list1.popleft())
+        else:
+            count_lenght += 1
+            list1[0][1] -= 1
+    list1 = list(list1)
+    whole = record + list1
+    record2 = []
+    while count_lenght < half_lenght and whole:
+        check1 = whole.pop()
+        if check1[0] in check_set:
+            pair_check.remove(check1[0])
+            count_lenght += 1
+        else:
+            record2.append(check1)
+    print(count_lenght,"JBQLELQEK")
+    # print(record2,count_lenght)
+    whole2 = record2 + whole
+    while count_lenght < half_lenght:
+        whole2.pop()
+        count_lenght += 1
+    print(whole2)
+    for i in range(len(whole2)):
+        set1.add(whole2[i][0])
+    # print(set1)
+# removal(nums3)
+# print(set1)
+removal(nums1_u,set_nums2,set_nums1)
+removal(nums2_u,set_nums1,set_nums2)
+print(len(set1))'''
+
+
+
+'''word1 = "horse"
+word2 = "ros"
+ans = 0
+if len(word2) > len(word1):
+    ans = ans + (len(word2) - len(word1))
+hash_word1 = {}
+hash_word2 = {}
+for item in word1:
+    if item not in hash_word1:
+        hash_word1[item] = 1
+    else:
+        hash_word1[item] += 1
+for item in word2:
+    if item not in hash_word2:
+        hash_word2[item] = 1
+    else:
+        hash_word2[item] += 1
+print(hash_word1,hash_word2)
+for key,value in hash_word2.items():
+    if key not in hash_word1:
+        ans = ans + value
+    else:
+        if value > hash_word1[key]:
+            ans = ans + (value - hash_word1[key])
+        hash_word1[key] = False
+print(hash_word1)
+for key,value in hash_word1.items():
+    if value != False:
+        ans = ans + value
+print(ans)
+'''
+
+
+
+
+
+'''low = 8511
+high = 23553
+later = ""
+for i in range(len(str(low))):
+    later = later + str(i+1)
+start = int(later)
+ans = []
+cal_len = len(str(start)) - 1
+while start <= high:
+    ans.append(start)
+    if str(start)[-1] == "9":
+        later = int(str(later) + str(int(str(later)[-1]) + 1))
+        start = later
+        cal_len = len(str(start)) - 1
+    else:
+        cal = str(start)[0] + ("0" * cal_len)
+        start = start - int(cal)
+        start = int(str(start) + str(int(str(start)[-1]) + 1))
+ans1 = []
+for i in range(len(ans)):
+    if low <= ans[i] <= high:
+        ans1.append(ans[i])
+print(ans1)'''
+
+
+
+
+
+
+
+
+
+
+
+
+'''s =  "2[abc]3[cd]ef"
 stack1 = []
 stack2 = []
 int_deccode = ""
@@ -25,7 +180,7 @@ for i in range(len(s)):
                     stack2.pop()
         else:
             stack2.append(s[i])
-print(stack2)
+print(stack2)'''
 
 
 
