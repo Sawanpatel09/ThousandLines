@@ -1,3 +1,126 @@
+s = "pvognvogdegwmfamvogsmvogvogldegwmfamvogvogjdegwmfamdegwmfamadegwmfamjzxivogfvogzxl"
+a = "vog"
+b = "degwmfam"
+k = 58
+list_a = []
+list_b = []
+for i in range(len(s)):
+    for j in range(len(a)):
+        if i+j < len(s) and s[i+j] == a[j]:
+            pass
+        else:
+            break
+    else:
+        list_a.append(i)
+for i in range(len(s)):
+    for j in range(len(b)):
+        if i + j < len(s) and s[i+j] == b[j]:
+            pass
+        else:
+            break
+    else:
+        list_b.append(i)
+print(list_a,list_b)
+i = 0
+j = 0
+ans = []
+while i < len(list_a) and j < len(list_b):
+    cal = abs(list_a[i] - list_b[j])
+    if cal > k:
+        # j = j + 1
+        if list_a[i] > list_b[j]:
+            j = j + 1
+        else:
+            i = i + 1
+    else:
+        ans.append(list_a[i])
+        i = i + 1
+print(ans)
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [2,5,6,9,10]
+a = min(nums)
+b = max(nums)
+while b != 0:
+    r = a % b
+    a = b
+    b = r
+print(a)'''
+
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [2,3,4]
+queries = [0,2,2]
+factors = [0] * (max(nums) + 1)
+for i in range(len(nums)):
+    num = nums[i]
+    j = 1
+    while (j * j) <= num:
+        if num % j == 0:
+            factors[j] += 1
+            if num//j != j:
+                factors[num//j] += 1
+        j = j + 1
+pairwithgcd = [0] * (max(nums) + 1)
+maxval = (max(nums)+1)
+maxval1 = max(nums)
+g = maxval1
+while g >= 1:
+    count = factors[g]
+    pairwithgcd[g] = count * (count - 1)//2
+    mul = 2 * g
+    while mul <= maxval1:
+        pairwithgcd[g] -= pairwithgcd[mul]
+        mul += g
+    g = g - 1
+prefix_count_gcd = [0] * (max(nums) + 1)
+g = 1
+while g <= maxval1:
+    prefix_count_gcd[g] = prefix_count_gcd[g-1] + pairwithgcd[g]
+    g = g + 1
+
+result = []
+for item in queries:
+    l = 1
+    r = maxval1
+    temp = 1
+    while l <= r:
+        mid_gcd = (l + r)//2
+        if prefix_count_gcd[mid_gcd] > item:
+            temp = mid_gcd
+            r = mid_gcd - 1
+        else:
+            l = mid_gcd + 1
+    result.append(temp)
+print(result)'''
+
+
+
+
+
+
+
+
+
+
 '''nums = [3,6,2,8]
 import math
 max1 = float('-inf')
