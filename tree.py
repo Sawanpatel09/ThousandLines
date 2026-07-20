@@ -1,4 +1,167 @@
-s = "pvognvogdegwmfamvogsmvogvogldegwmfamvogvogjdegwmfamdegwmfamadegwmfamjzxivogfvogzxl"
+grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]]
+k = 4
+list1 = []
+for i in range(len(grid)):
+    for j in range(len(grid[0])):
+        list1.append(grid[i][j])
+m = len(grid)
+n = len(grid[0])
+k = k % (m * n)
+start = len(list1) - k
+
+ans = []
+ans2 = []
+for i in range(start,(m*n)):
+    ans2.append(list1[i])
+    if len(ans2) == len(grid[0]):
+        ans.append(ans2)
+        ans2 = []
+for i in range(0,start):
+    ans2.append(list1[i])
+    if len(ans2) == len(grid[0]):
+        ans.append(ans2)
+        ans2 = []
+print(ans)
+
+
+
+
+
+
+
+
+
+
+
+
+# m = len(grid)
+# n = len(grid[0])
+# actuall = k % (m * n)
+# row = 0
+# coloumn = 0
+# for i in range(len(grid)-1,-1,-1):
+#     for j in range(len(grid[0])-1,-1,-1):
+#         actuall -= 1
+#         if actuall == 0:
+#             row = i
+#             coloumn = j
+# ans = []
+# ans2 = []
+# row1 = row
+# coloumn1 = coloumn
+# while row1 < len(grid):
+#     while coloumn1 < len(grid[0]):
+#         ans2.append(grid[row1][coloumn1])
+#         if len(ans2) == len(grid[0]):
+#             ans.append(ans2)
+#             ans2 = []
+#         coloumn1 += 1
+#     coloumn1 = 0
+#     row1 += 1
+# for i in range(len(grid)):
+#     for j in range(len(grid[0])):
+#         if i == row and j == coloumn:
+#             break
+#         else:
+#             ans2.append(grid[i][j])
+#         if len(ans2) == len(grid[0]):
+#             ans.append(ans2)
+#             ans2 = []
+# print(ans)
+
+
+
+
+
+
+
+
+'''n = 2
+count = 0
+for i in range(n+1):
+    bin1 = str(bin(i))[2:]
+    for item in bin1:
+        if item == "1":
+            count += 1
+print(count)'''
+
+
+
+
+
+
+'''s = "accbb"
+check1 = 0
+temporary = ["z"]
+ongoing = []
+for i in range(len(s)):
+    if check1 == 0 and s[i] < temporary[check1] :
+        temporary = []
+        temporary.append(s[i])
+        check1 = 0
+    elif (check1 < len(temporary)) and (s[i] == temporary[check1]):
+        ongoing.append(s[i])
+        check1 += 1
+    elif (check1 < len(temporary)) and s[i] < temporary[check1]:
+        ongoing.append(s[i])
+        temporary = ongoing
+        ongoing = []
+    else:
+        if len(temporary) == 1 and temporary[0] >= s[i]:
+            temporary = []
+        temporary.append(s[i])
+        check1 = 0
+ans = temporary
+hash1 = {}
+for item in ans:
+    if item not in hash1:
+        hash1[item] = 1
+    else:
+        hash1[item] += 1
+print(ans)
+i = 0
+j = 1
+common_set = set()
+ans2 = ""
+while i < len(ans) - 1 and j < len(ans):
+    if ans[i] < ans[j]:
+        if ans[i] not in common_set:
+            ans2 += ans[i]
+            common_set.add(ans[i])
+        if j == len(ans) - 1:
+            if ans[j] not in common_set:
+                ans2 += ans[j]
+                common_set.add(ans[j])
+        i = j
+        j = j + 1
+    elif ans[i] > ans[j]:
+        if hash1[ans[i]] > 1:
+            hash1[ans[i]] -= 1
+            i = j
+            j = j + 1
+        else:
+            if ans[i] not in common_set:
+                ans2 += ans[i]
+            if j == len(ans) - 1:
+                if ans[j] not in common_set:
+                    ans2 += ans[j]
+                    common_set.add(ans[j])
+            common_set.add(ans[i])
+            i = j
+            j = j + 1
+    elif ans[i] == ans[j]:
+        if j == len(ans) - 1:
+            if ans[j] not in common_set:
+                ans2 += ans[j]
+                common_set.add(ans[j])
+        if hash1[ans[i]] > 1:
+            hash1[ans[i]] -= 1
+        j = j + 1
+print(ans2)'''
+
+
+
+'''s = "pvognvogdegwmfamvogsmvogvogldegwmfamvogvogjdegwmfamdegwmfamadegwmfamjzxivogfvogzxl"
 a = "vog"
 b = "degwmfam"
 k = 58
@@ -36,7 +199,7 @@ while i < len(list_a) and j < len(list_b):
         ans.append(list_a[i])
         i = i + 1
 print(ans)
-
+'''
 
 
 
