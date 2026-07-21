@@ -1,4 +1,95 @@
-grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]]
+s = "0101000011111000111001011"
+array = []
+count_zero = 0
+count_one = 0
+for i in range(len(s)):
+    if s[i] == "0":
+        if count_one != 0:
+            list1 = ["1",count_one]
+            array.append(list1)
+            count_one = 0
+        count_zero += 1
+    elif s[i] == "1":
+        if count_zero != 0:
+            list1 = ["0",count_zero]
+            array.append(list1)
+            count_zero = 0
+        count_one += 1
+if count_zero != 0:
+    array.append(["0",count_zero])
+else:
+    array.append(["1",count_one])
+count = 0
+ans = 0
+for item in array:
+    if item[0] == "1":
+        g = item[1]
+        count += g
+ans = count
+for i in range(len(array)):
+    if array[i][0] == "1":
+        a = 0
+        if i-1 >= 0 and array[i-1][0] == "0":
+            a = array[i-1][1]
+        b = 0
+        if i+1 < len(array) and array[i+1][0] == "0":
+            b = array[i+1][1]
+        ans = max(ans, count + a + b)
+
+print(ans)
+print(array)
+print(len(s))
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''s = "110001001"
+count_zero_before_one = 0
+count_zero_after_one = 0
+count_one = 0
+found_one = False
+max_ans = float('-inf')
+for i in range(len(s)):
+    if found_one == False:
+        if s[i] == "0":
+            count_zero_before_one += 1
+        elif s[i] == "1":
+            found_one = True
+            count_one += 1
+    elif found_one == True:
+        if s[i] == "0":
+            count_zero_after_one += 1
+        elif s[i] == "1":
+            if count_zero_after_one == 0:
+                count_one += 1
+            else:
+                if count_zero_before_one > 0 and count_zero_after_one > 0:
+                    cal = count_one + count_zero_after_one + count_zero_before_one
+                    max_ans = max(cal,max_ans)
+                else:
+                    max_ans = max(max_ans,count_one)
+                    count_one = 1
+                count_zero_before_one = count_zero_after_one
+                count_zero_after_one = 0
+print(max_ans)
+print(count_zero_before_one,count_zero_after_one)
+'''
+
+
+
+
+
+
+'''grid = [[3,8,1,9],[19,7,2,5],[4,6,11,10],[12,0,21,13]]
 k = 4
 list1 = []
 for i in range(len(grid)):
@@ -21,7 +112,7 @@ for i in range(0,start):
     if len(ans2) == len(grid[0]):
         ans.append(ans2)
         ans2 = []
-print(ans)
+print(ans)'''
 
 
 
