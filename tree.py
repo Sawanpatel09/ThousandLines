@@ -1,4 +1,62 @@
-s = "0101000011111000111001011"
+
+
+
+
+'''nums = [1,2,3,4,5,6,7,8,9,10,1,2]
+nums.sort()
+print(nums)
+i = 0
+j = len(nums) - 2
+k = len(nums) - 1
+total = 0
+while i < j:
+    total += nums[j]
+    k = j - 1
+    j = j - 2
+    i = i + 1
+print(total)
+'''
+
+
+
+
+
+
+
+'''s = "bababcc"
+list1 = [0] * 26
+for item in s:
+    list1[ord(item)-97] += 1
+str1 = ""
+check = ""
+for i in range(len(list1)):
+    cal = list1[i] // 2
+    if list1[i] % 2 != 0:
+        check = check + chr(97 + i)
+        list1[i] = list1[i] - (cal + 1)
+    else:
+        list1[i] = list1[i] - cal
+    for j in range(cal):
+        str1 = str1 + chr(97 + i)
+str2 = ""
+for i in range(len(list1)):
+    cal = list1[i]
+    list1[i] = list1[i]-cal
+    for j in range(cal):
+        str2 = chr(97 + i) + str2
+ans = str1 + check + str2
+print(ans)'''
+
+
+
+
+
+
+
+
+
+
+'''s = "0101000011111000111001011"
 array = []
 count_zero = 0
 count_one = 0
@@ -38,7 +96,7 @@ for i in range(len(array)):
 
 print(ans)
 print(array)
-print(len(s))
+print(len(s))'''
 
 
 
