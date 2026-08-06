@@ -1,3 +1,21 @@
+n = 15
+t = 3
+while True:
+    str1 = str(n)
+    mul = 1
+    for item in str1:
+        mul = mul * int(item)
+    if mul % t == 0:
+        print(n)
+        break
+    n = n + 1
+
+
+
+
+
+
+
 
 
 
