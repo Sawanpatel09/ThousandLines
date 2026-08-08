@@ -1,4 +1,117 @@
-n = 15
+word1 = "aaaaaa"
+word2 = "aaabc"
+list1 = [0] * len(word1)
+suffix = 0
+j = len(word2) - 1
+for i in range(len(word1)-1,-1,-1):
+    if j >= 0 and word2[j] == word1[i]:
+        suffix += 1
+        j = j - 1
+    list1[i] = suffix
+i = 0
+j = 0
+flag = False
+ans = []
+while i < len(word1) and j < len(word2):
+    if word1[i] == word2[j]:
+        ans.append(i)
+        j = j + 1
+    elif c flag == False and list1[i+1] >= (len(word2) - j - 1):
+        ans.append(i)
+        j = j + 1
+        flag = True
+    i = i + 1
+print(ans)
+print(list1)
+
+
+
+
+
+
+
+
+'''nums = [2,-3]
+count = 0
+for i in range(len(nums)):
+    set1 = set()
+    sum1 = 0
+    for j in range(i,len(nums)):
+        set1.add(nums[j])
+        sum1 = sum1 + nums[j]
+        if sum1 in set1:
+            count += 1
+print(count)'''
+
+
+
+
+
+
+
+
+
+'''word1 = "bacdc"
+word2 = "abc    "
+list1 = []
+flag = False
+i = 0
+j = 0
+while i < len(word1) and j < len(word2):
+    if word1[i] != word2[j]:
+        if flag == False:
+            flag = True
+            i = i + 1
+            j = j + 1
+        else:
+            list1 = []
+            flag = False
+            j = 0
+    else:
+        list1.append(i)
+        i = i + 1
+        j = j + 1
+
+print(list1)'''
+
+
+
+
+
+
+'''nums = [1,1,1,1,2,3,5,1,2,3,5,8,13,21]
+longest_fibo = 2
+i = 0
+j = 1
+count = 0
+flag = False
+while j < len(nums) - 1:
+    if (nums[i] + nums[j]) == nums[j+1]:
+        if flag == False:
+            count += 3
+            flag = True
+        else:
+            count += 1
+    else:
+        longest_fibo = max(count,longest_fibo)
+        count = 0
+        flag = False
+    i = i + 1
+    j = j + 1
+longest_fibo = max(count,longest_fibo)
+print(longest_fibo)'''
+
+
+
+
+
+
+
+
+
+
+
+'''n = 15
 t = 3
 while True:
     str1 = str(n)
@@ -8,7 +121,7 @@ while True:
     if mul % t == 0:
         print(n)
         break
-    n = n + 1
+    n = n + 1'''
 
 
 
