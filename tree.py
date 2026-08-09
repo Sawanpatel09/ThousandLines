@@ -1,4 +1,70 @@
-word1 = "aaaaaa"
+'''import heapq
+nums = [3,8,20]
+heap = []
+for i in range(len(nums)):
+    heapq.heappush(heap,-nums[i])
+# x = heapq.heappop(heap)
+sum1 = sum(nums)
+half = sum1 / 2
+check1 = sum1
+count = 0
+while half < check1:
+    x = heapq.heappop(heap)
+    x1 = -x
+    check1 = check1 - x1
+    half1 = x1 / 2
+    check1 = check1 + half1
+    heapq.heappush(heap,-half1)
+    count += 1
+print(count)'''
+
+
+
+
+
+
+
+
+
+'''nums = [1,2,3,4,5,6]
+sum1 = sum(nums)
+half = sum1 / 2
+nums.sort()
+i = len(nums) - 1
+flag = False
+check1 = sum1
+count = 0
+while i >= 0:
+    check1 = check1 - nums[i]
+    current_half = nums[i]
+    while True:
+        current_half = current_half / 2
+        add = check1 + current_half
+        count += 1
+        if add > half:
+            if current_half < nums[i-1]:
+                check1 = check1 + current_half
+                print(check1,current_half,nums[i])
+                i = i - 1
+                break
+        else:
+            flag = True
+            break
+    if flag == True:
+        break
+print(count)
+print(check1)'''
+
+
+
+
+
+
+
+
+
+
+'''word1 = "aaaaaa"
 word2 = "aaabc"
 list1 = [0] * len(word1)
 suffix = 0
@@ -22,7 +88,7 @@ while i < len(word1) and j < len(word2):
         flag = True
     i = i + 1
 print(ans)
-print(list1)
+print(list1)'''
 
 
 
