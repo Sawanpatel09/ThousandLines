@@ -1,3 +1,52 @@
+answerKey = "FFTFTTTFFTTTTFTTFFTFTTFTFTTFFFTTTTFFFTFFFFTTFTFTTFFFFTFTFTFTTFFTFFTFFFFFFTTFFTFFTFFTFFFFFTFTTFFTTFTT"
+k = 10
+i = 0
+j = 0
+count = 0
+max1 = float('-inf')
+while j < len(answerKey):
+    if count <= k:
+        if answerKey[j] == "F":
+            count += 1
+        j = j + 1
+    else:
+        if answerKey[i] == "F":
+            count -= 1
+        i = i + 1
+        cal = j - i
+        max1 = max(max1, cal)
+
+cal = (j - i)
+if count > k:
+    cal -= 1
+max1 = max(max1, cal)
+i = 0
+j = 0
+count = 0
+max2 = float('-inf')
+while j < len(answerKey):
+    if count <= k:
+        if answerKey[j] == "T":
+            count += 1
+        j = j + 1
+    else:
+        if answerKey[i] == "T":
+            count -= 1
+        i = i + 1
+        cal = j - i
+        max2 = max(max2,cal)
+cal = (j - i)
+if count > k:
+    cal -= 1
+max2 = max(max2,cal)
+ans = max(max1,max2)
+print(ans)
+
+
+
+
+
+
 '''import heapq
 nums = [3,8,20]
 heap = []
