@@ -1,4 +1,76 @@
-answerKey = "FFTFTTTFFTTTTFTTFFTFTTFTFTTFFFTTTTFFFTFFFFTTFTFTTFFFFTFTFTFTTFFTFFTFFFFFFTTFFTFFTFFTFFFFFTFTTFFTTFTT"
+nums = [1,2,3,4]
+freq = [0] * (max(nums) + 1)
+for item in nums:
+    freq[item] += 1
+list1 = []
+count = 0
+while count < len(nums):
+    list2 = []
+    set1 = set()
+    for i in range(len(nums)):
+        if freq[nums[i]] != 0 and nums[i] not in set1:
+            list2.append(nums[i])
+            set1.add(nums[i])
+            freq[nums[i]] -= 1
+            count += 1
+    list1.append(list2)
+print(list1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [3,4,5,1,12,14,13]
+max_len = float('-inf')
+max_sum = 0
+count = 0
+sum1 = 0
+flag = False
+for i in range(1,len(nums)):
+    if (nums[i-1] + 1) == nums[i]:
+        if flag == False:
+            sum1 = sum1 + nums[i]
+            sum1 = sum1 + nums[i-1]
+            count += 2
+            flag = True
+        else:
+            sum1 = sum1 + nums[i]
+            count += 1
+    else:
+        if count > max_len:
+            max_len = count
+            max_sum = sum1
+            count = 0
+            sum1 = 0
+        flag = False
+if max_len < count:
+    max_sum = sum1
+set1 = set(nums)
+while max_sum in set1:
+    max_sum += 1
+print(max_sum)'''
+
+
+
+
+
+
+
+
+
+
+
+'''answerKey = "FFTFTTTFFTTTTFTTFFTFTTFTFTTFFFTTTTFFFTFFFFTTFTFTTFFFFTFTFTFTTFFTFFTFFFFFFTTFFTFFTFFTFFFFFTFTTFFTTFTT"
 k = 10
 i = 0
 j = 0
@@ -40,7 +112,7 @@ if count > k:
     cal -= 1
 max2 = max(max2,cal)
 ans = max(max1,max2)
-print(ans)
+print(ans)'''
 
 
 
