@@ -1,4 +1,108 @@
-nums = [1,2,3,4]
+n = 3
+matrix = [[0 for i in range(n)] for j in range(n)]
+numbers = 1
+count = 0
+start = 0
+if n % 2 != 0:
+    start = 1
+for i in range((n//2)+start):
+    for j in range(count,n-count):
+        matrix[i][j] = numbers
+        numbers += 1
+    for k in range(count+1, n-count):
+        matrix[k][j] = numbers
+        numbers += 1
+    for l in range(n - (count + 2), count - 1, -1):
+        matrix[k][l] = numbers
+        numbers += 1
+    for m in range(n-(count+2),count,-1):
+        matrix[m][l] = numbers
+        numbers += 1
+    count += 1
+print(matrix)
+
+
+
+
+
+'''nums = [[7,2,1],[6,4,2],[6,5,3],[3,2,1]]
+total = 0
+for j in range(len(nums[0])):
+    list1 = []
+    for k in range(len(nums)):
+        max1 = max(nums[k])
+        list1.append(max1)
+        nums[k].remove(max1)
+    total += max(list1)
+print(total)'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''n = 3
+list2 = []
+for i in range(n):
+    list2.append("(")
+for i in range(n):
+    list2.append(")")
+ans = ["".join(list2)]
+count = 0
+count1 = 1
+while count1 < n:
+    list1 = list(tuple(list2))
+    i = (len(list2) // 2) - 1
+    j = len(list2) // 2
+    i = i - count
+    j = j + count
+    while i > 0:
+        list1[i],list1[j] = list1[j],list1[i]
+        i = i - 1
+        j = j - 1
+        str1 = "".join(list1)
+        ans.append(str1)
+    count += 1
+    count1 += 1
+count1 = 1
+count = 0
+while count1 < n:
+    list1 = list(tuple(list2))
+    i = (len(list2) // 2) - 1
+    j = len(list2) // 2
+    i = i + count
+    j = j + count
+    while j < len(list2) - 1:
+        list1[i], list1[j] = list1[j], list1[i]
+        i = i + 1
+        j = j + 1
+        str1 = "".join(list1)
+        ans.append(str1)
+    count += 1
+    count1 += 1
+
+
+print(list(set(ans)))'''
+
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [1,2,3,4]
 freq = [0] * (max(nums) + 1)
 for item in nums:
     freq[item] += 1
@@ -15,7 +119,7 @@ while count < len(nums):
             count += 1
     list1.append(list2)
 print(list1)
-
+'''
 
 
 
