@@ -1,4 +1,51 @@
-n = 3
+nums = [0]
+store = nums[0]
+flag = False
+count = 0
+for i in range(1,len(nums)):
+    store = store ^ nums[i]
+    if store == 0:
+        flag = True
+    if nums[i] == 0:
+        count += 1
+# if (len(nums) == 2) and (nums[0] == nums[1]):
+#     print(0)
+print(count)
+if count == len(nums):
+    print(0)
+else:
+    if store == 0:
+        print(len(nums) - 1)
+    else:
+        print(len(nums))
+
+
+    # print(store)
+# if store == 0:
+#     for i in range(len(nums)):
+#         bin1 = str(bin(nums[i]))[2:]
+#         for item in bin1:
+#             if item == "0":
+#                 print(len(nums) - 1)
+#                 flag = True
+#                 break
+#         if flag == True:
+#             break
+#     else:
+#         print(0)
+# else:
+#     print(len(nums))
+
+
+
+
+
+
+
+
+
+
+'''n = 3
 matrix = [[0 for i in range(n)] for j in range(n)]
 numbers = 1
 count = 0
@@ -19,7 +66,7 @@ for i in range((n//2)+start):
         matrix[m][l] = numbers
         numbers += 1
     count += 1
-print(matrix)
+print(matrix)'''
 
 
 
