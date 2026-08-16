@@ -1,4 +1,23 @@
-nums = [0]
+n = 1
+list1 = ["0"]
+for i in range(1,n+1):
+    bin1 = ""
+    while i > 0:
+        bin1 = str(i % 2) + bin1
+        i = i // 2
+    list1.append(bin1)
+ans = []
+for item in list1:
+    a = int(item,2)
+    ans.append(a)
+print(ans)
+
+
+
+
+
+
+'''nums = [0]
 store = nums[0]
 flag = False
 count = 0
@@ -17,7 +36,7 @@ else:
     if store == 0:
         print(len(nums) - 1)
     else:
-        print(len(nums))
+        print(len(nums))'''
 
 
     # print(store)
