@@ -1,4 +1,254 @@
-n = 1
+s = "111111111110010001"
+group = []
+i = 0
+count_zero = 0
+count_one = 0
+while i < len(s):
+    if s[i] == "0":
+        count_zero += 1
+        if count_one != 0:
+            group.append(["1",count_one])
+        count_one = 0
+    elif s[i] == "1":
+        count_one += 1
+        if count_zero != 0:
+            group.append(["0",count_zero])
+        count_zero = 0
+    i = i + 1
+if count_zero != 0:
+    group.append(["0",count_zero])
+elif count_one != 0:
+    group.append(["1",count_one])
+print(group)
+ans = 0
+prev = False
+for i in range(len(group)):
+    if prev == False:
+        prev = group[i]
+    elif prev[1] % 2 != 0 and group[i][1] % 2 != 0:
+        ans += 1
+        prev = False
+    elif prev[1] % 2 != 0 and group[i][1] % 2 == 0:
+        ans += 1
+        group[i][1] -= 1
+        prev = group[i]
+    elif prev[1] % 2 == 0 and group[i][1] % 2 != 0:
+        prev = group[i]
+print(ans)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''s = "111111111110010001"
+group = []
+i = 0
+count_zero = 0
+count_one = 0
+while i < len(s):
+    if s[i] == "0":
+        count_zero += 1
+        if count_one != 0:
+            group.append(["1",count_one])
+        count_one = 0
+    elif s[i] == "1":
+        count_one += 1
+        if count_zero != 0:
+            group.append(["0",count_zero])
+        count_zero = 0
+    i = i + 1
+if count_zero != 0:
+    group.append(["0",count_zero])
+elif count_one != 0:
+    group.append(["1",count_one])
+print(group)
+# print(group)
+ans = 0
+prev = False
+for i in range(len(group)):
+    # if group[i][1] % 2 != 0:
+    if prev == False:
+        prev = group[i]
+    elif prev != False and prev[1] % 2 != 0 and group[i][1] % 2 != 0:
+        prev[1] = prev[1] - 1
+        group[i][1] += 1
+        ans += 1
+        prev = False
+    elif prev != False and prev[1] % 2 != 0:
+        if prev[0] == group[i][0]:
+            prev[1] += group[i][1]
+        elif prev[1] > group[i][1]:
+            ans = ans + group[i][1]
+            prev[1] = prev[1] + group[i][1]
+        else:
+            ans = ans + prev[1]
+            prev[1] = prev[1] + group[i][1]
+            prev[0] = group[i][0]
+    else:
+        if prev[1] % 2 == 0 and group[i][1] % 2 != 0:
+            prev = group[i]
+            prev[1] = prev[1] - 1
+            if i < len(group) - 1:
+                group[i+1][1] += 1
+            ans += 1
+        else:
+            prev = False
+print(ans)
+'''
+
+
+
+
+
+
+
+
+
+
+
+'''s = "10"
+group = []
+i = 0
+count_zero = 0
+count_one = 0
+while i < len(s):
+    if s[i] == "0":
+        count_zero += 1
+        if count_one != 0:
+            group.append(count_one)
+        count_one = 0
+    elif s[i] == "1":
+        count_one += 1
+        if count_zero != 0:
+            group.append(count_zero)
+        count_zero = 0
+    i = i + 1
+if count_zero != 0:
+    group.append(count_zero)
+elif count_one != 0:
+    group.append(count_one)
+print(group)
+ans = 0
+i = 0
+j = 1
+flag = False
+while j < len(group):
+    if group[i] % 2 != 0 and group[j] % 2 != 0:
+        group[j] = group[j] - 1
+        if flag == True:
+            # print(i,j)
+            i = i + 1
+            j = j + 1
+        else:
+            # print(i,j)
+            i = i + 2
+            j = j + 2
+        flag = False
+        ans += 1
+    elif (group[i] % 2 != 0 and group[j] % 2 == 0) or (group[i] % 2 == 0 and group[j] % 2 != 0):
+        group[j] = group[j] - 1
+        i = i + 1
+        j = j + 1
+        flag = True
+        ans += 1
+    else:
+        # print(i,j,ans)
+        i = i + 2
+        j = j + 2
+print(group)
+print(ans)
+'''
+
+
+
+
+
+
+
+
+'''nums = [8,1,5,6,9, 7,1,3,5,6,7,2]
+left = []
+min1 = float('inf')
+right = []
+min2 = float('inf')
+j = len(nums) - 1
+for i in range(len(nums)):
+    min1 = min(min1,nums[i])
+    min2 = min(min2,nums[j])
+    left.append(min1)
+    right.append(min2)
+    j = j - 1
+right.reverse()
+min_triplet = float('inf')
+flag = False
+for i in range(len(nums)):
+    if left[i] < nums[i] > right[i]:
+        flag = True
+        sum1 = left[i] + nums[i] + right[i]
+        min_triplet = min(min_triplet,sum1)'''
+
+
+
+
+
+
+
+
+
+'''nums = [2,3,2,1]
+i = 0
+j = 1
+k = 2
+max_sum = float('inf')
+flag = False
+while k < len(nums) and j < len(nums) - 1 and i < len(nums) - 2:
+    if nums[i] < nums[j] > nums[k]:
+        sum1 = nums[i] + nums[j] + nums[k]
+        max_sum = min(max_sum,sum1)
+        if flag == True:
+            j = j + 1
+        else:
+            k = k + 1
+    elif nums[i] > nums[j]:
+        flag = False
+        i = j
+        j = j + 1
+    elif nums[i] < nums[j] < nums[k]:
+        if k == len(nums) - 1:
+            j = j + 1
+        else:
+            k = k + 1
+        flag = True
+    elif nums[i] == nums[j]:
+        j = j + 1
+    if i == j:
+        j = j + 1
+    if j == k:
+        k = k + 1
+if type(max_sum) == float:
+    print(-1)
+else:
+    print(max_sum)'''
+
+
+
+
+
+
+
+
+
+
+'''n = 1
 list1 = ["0"]
 for i in range(1,n+1):
     bin1 = ""
@@ -10,7 +260,7 @@ ans = []
 for item in list1:
     a = int(item,2)
     ans.append(a)
-print(ans)
+print(ans)'''
 
 
 
