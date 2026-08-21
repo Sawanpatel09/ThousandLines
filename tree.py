@@ -1,4 +1,111 @@
-s = "111111111110010001"
+grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]
+ans = 0
+for k in range(len(grid)):
+    for i in range(len(grid)):
+        for j in range(len(grid)):
+            # print(grid[i][j],grid[j][i])
+            if grid[k][j] == grid[j][i]:
+                pass
+            else:
+                # print("nsk")
+                break
+        else:
+            ans += 1
+print(ans)
+# return ans
+
+
+
+
+
+'''coins = [6,5]
+k = 1435065516
+min1 = min(coins)
+total = min1 * k
+ans = 0
+for i in range(len(coins)):
+    if coins[i] == min1:
+        pass
+    else:
+        half = k
+        check = coins[i]
+        while True:
+            cal = check * half
+            if cal > total:
+                half = half // 2
+            else:
+                while (check * half) <= total:
+                    # print(check,half)
+                    check = check * half
+                    if check % min1 != 0:
+                        ans += 1
+                    half += 1
+                break
+# print(ans)
+print(min1*(k-ans))'''
+
+
+
+
+
+
+'''coins = [1,4,10]
+target = 19
+coins.sort()
+sum1 = 0
+ans = 0
+j = 0
+while sum1 < target:
+    if j < len(coins) and coins[j] <= sum1 + 1:
+        sum1 += coins[j]
+        j = j + 1
+    else:
+        sum1 += sum1 + 1
+        ans += 1
+        # j = j + 1
+        # else:
+            # ans += 1
+            # sum1 += i
+            # print(sum1,ans,i)
+    # if j == len(coins):
+    #     break
+print(ans)
+print(sum1)
+'''
+
+
+
+
+
+
+
+
+
+
+'''coins = [1,1,1]
+target = 20
+sum1 = 0
+set1 = set(coins)
+ans = 0
+for i in range(1,target+1):
+    if i in set1:
+        sum1 += i
+    else:
+        if i <= sum1:
+            sum1
+            pass
+        else:
+            ans += 1
+            sum1 += i
+print(ans)'''
+
+
+
+
+
+
+
+'''s = "111111111110010001"
 group = []
 i = 0
 count_zero = 0
@@ -35,7 +142,7 @@ for i in range(len(group)):
     elif prev[1] % 2 == 0 and group[i][1] % 2 != 0:
         prev = group[i]
 print(ans)
-
+'''
 
 
 
