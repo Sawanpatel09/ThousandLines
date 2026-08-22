@@ -1,4 +1,30 @@
-grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]
+# class A:
+#     def __init__(self,list1):
+#         for item in list1:
+#             print(item)
+# list1 = ["ram","shyam"]
+# obj1 = A(list1)
+
+
+
+'''n = 99
+str1 = str(n)
+mul = 1
+sum1 = 0
+for item in str1:
+    sum1 = sum1 + int(item)
+    mul = mul * int(item)
+print(sum1,mul)
+add1 = sum1 + mul'''
+
+
+
+
+
+
+
+
+'''grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]
 ans = 0
 for k in range(len(grid)):
     for i in range(len(grid)):
@@ -12,7 +38,7 @@ for k in range(len(grid)):
         else:
             ans += 1
 print(ans)
-# return ans
+# return ans'''
 
 
 
