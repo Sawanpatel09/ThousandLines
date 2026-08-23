@@ -1,3 +1,114 @@
+num = "?6?6?000?3"
+first_half = 0
+second_half = 0
+alice_count = 0
+bob_count = 0
+first_half_alice_count = 0
+first_half_bob_count = 0
+second_half_alice_count = 0
+second_half_bob_count = 0
+half = len(num) // 2
+turn_check = 0
+count_q_first_half = 0
+count_q_second_half = 0
+for i in range(len(num)):
+    if num[i] == "?":
+        if half > i:
+            if turn_check % 2 == 0:
+                first_half_alice_count += 1
+            else:
+                first_half_bob_count += 1
+            # first_half_check += 1
+            count_q_first_half += 1
+        else:
+            if turn_check % 2 == 0:
+                second_half_alice_count += 1
+            else:
+                second_half_bob_count += 1
+            # second_half_check += 1
+            count_q_second_half += 1
+    if num[i] == "?":
+        if turn_check % 2 == 0:
+            alice_count += 1
+        else:
+            bob_count += 1
+        turn_check += 1
+    else:
+        if i < half:
+            first_half += int(num[i])
+        else:
+            second_half += int(num[i])
+if alice_count > bob_count:
+    print(True)
+elif alice_count < bob_count:
+    print(False)
+else:
+    if count_q_first_half > count_q_second_half:
+        if first_half_alice_count > first_half_bob_count:
+            print(True)
+            # if abs(first_half - second_half) == 9:
+            #     print(False)
+            # else:
+            #     print(True)
+        elif first_half_alice_count == first_half_bob_count:
+            if abs(first_half-second_half) == 9:
+                print(False)
+            else:
+                print(True)
+            # a = second_half - 0
+            # b = second_half - (first_half_bob_count * 9)
+            # if 0 <= b <= a <= (first_half_bob_count * 9):
+            #     print(False)
+            # else:
+            #     print(True)
+            # if second_half == (first_half_bob_count * 9):
+            #     print(False)
+            # else:
+            #     print(True,"hd")
+        else:
+            print(False)
+    elif count_q_first_half < count_q_second_half:
+        if second_half_alice_count > second_half_bob_count:
+            print(True)
+            # if abs(first_half - second_half) == 9:
+            #     print(False)
+            # else:
+            #     print(True)
+        elif second_half_alice_count == second_half_bob_count:
+            if abs(first_half-second_half) == 9:
+                print(False)
+            else:
+                print(True)
+            # a = first_half - 0
+            # b = first_half - (second_half_bob_count * 9)
+            # if 0 <= b <= a <= (second_half_bob_count * 9):
+            #     print(False)
+            # else:
+            #     print(True)
+            # if first_half == (second_half_bob_count * 9):
+            #     print(False)
+            # else:
+            #     print(True)
+        else:
+            print(False)
+    else:
+        if first_half == second_half:
+            print(False)
+        else:
+            print(True)
+
+print(second_half_alice_count,second_half_bob_count)
+print(first_half,second_half)
+print(count_q_first_half,count_q_second_half)
+print(first_half_alice_count,first_half_bob_count)
+print(alice_count,bob_count)
+
+
+
+
+
+
+
 # class A:
 #     def __init__(self,list1):
 #         for item in list1:
