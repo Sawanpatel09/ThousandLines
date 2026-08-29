@@ -1,4 +1,319 @@
-num = "?6?6?000?3"
+nums = [4,3,23,84,34,88,44,44,18,15]
+limit = 3
+nums1 = []
+for i in range(len(nums)):
+    a = [nums[i],i]
+    nums1.append(a)
+print(nums1)
+nums1.sort()
+print(nums1)
+# j = 0
+i = 1
+while i < len(nums1):
+    if i == 0:
+        i = 1
+    cal = (nums1[i][0] - nums1[i-1][0])
+    if cal <= limit:
+        if nums1[i-1][1] > nums1[i][1]:
+            nums1[i-1][0],nums1[i][0] = nums1[i][0],nums1[i-1][0]
+            nums1[i-1],nums1[i] = nums1[i],nums1[i-1]
+            i = i - 1
+        else:
+            i = i + 1
+    else:
+        i = i + 1
+print(nums1)
+ans = [0] * len(nums)
+for item in nums1:
+    element1 = item[0]
+    idx = item[1]
+    ans[idx] = element1
+print(ans)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''s = "aaaa"
+set1 = set()
+str1 = ""
+ans = []
+for i in range(len(s)):
+    str1 += s[i]
+    # print(str1)
+    if str1 not in set1:
+        set1.add(str1)
+        ans.append(str1)
+        print(ans)
+        str1 = ""
+    # else:
+        # str1 += s[i]
+if str1 != "":
+    if str1 not in set1:
+        ans.append(str1)
+print(ans)'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [3,3,4]
+k = 0
+nums.sort()
+# k = 4
+count = 0
+j = 0
+for i in range(len(nums)):
+    if nums[i] <= k:
+        count += 1
+    else:
+        j = i
+        break
+else:
+    j = len(nums)
+ans = (count * (count - 1))//2
+if ans == 0:
+    ans += 1
+i = 0
+while j < len(nums):
+    if i == j:
+        j = j + 1
+    elif abs(nums[j]-nums[i]) <= k:
+        cal = j - i
+        ans += cal
+        j = j + 1
+    else:
+        i = i + 1
+print(ans)'''
+
+
+
+
+
+
+
+
+
+
+'''s = "aab"
+target = "aab"
+s_arr = list(s)
+s_arr.sort()
+target_arr = list(target)
+if s_arr[-1] < target_arr[0]:
+    print("")
+i = 0
+j = 0
+set1 = set()
+ans = ""
+hash4 = {}
+while i < len(s_arr) and j < len(target_arr):
+    if s_arr[i] == target_arr[j]:
+        ans = ans + s_arr[i]
+        set1.add(i)
+        i = i + 1
+        j = j + 1
+    elif s_arr[i] > target_arr[j]:
+        if target_arr[j] in hash4 and hash4[target_arr[j]] > 0:
+            ans = ans + target_arr[j]
+            hash4[target_arr[j]] -= 1
+        else:
+            set1.add(i)
+            ans = ans + s_arr[i]
+            break
+    else:
+        if s_arr[i] not in hash4:
+            hash4[s_arr[i]] = 1
+        else:
+            hash4[s_arr[i]] += 1
+        i = i + 1
+for i in range(len(s_arr)):
+    if i not in set1:
+        if s_arr[i] in hash4:
+            if hash4[s_arr[i]] > 0:
+                ans += s_arr[i]
+        else:
+            ans += s_arr[i]
+if ans <= target:
+    ans_arr = list(ans)
+    for i in range(len(ans)-1, 0,-2):
+        print(ans_arr)
+        if ans_arr[i-1] != ans_arr[i]:
+            ans_arr[i-1],ans_arr[i] = ans_arr[i],ans_arr[i-1]
+            if "".join(ans_arr) > target:
+                print(ans_arr)
+                break
+
+    ans = "".join(ans_arr)
+    if ans <= target:
+        print("")
+    else:
+        print(ans)
+else:
+    print(ans)
+'''
+
+
+
+
+
+
+
+
+'''s = "leet"
+target = "code"
+s_arr = list(s)
+target_arr = list(target)
+s_arr.sort()
+hash1 = {}
+for i in range(len(s_arr)):
+    if s_arr[i] not in hash1:
+        hash1[s_arr[i]] = 1
+    else:
+        hash1[s_arr[i]] += 1
+copy_hash1 = {}
+for i in range(len(s_arr)):
+    if s_arr[i] not in copy_hash1:
+        copy_hash1[s_arr[i]] = 1
+    else:
+        copy_hash1[s_arr[i]] += 1
+ans = ""
+for item in target_arr:
+    if item in hash1 and hash1[item] > 0:
+        ans = ans + item
+        hash1[item] -= 1
+    else:
+        if item == "z":
+            print("")
+            break
+        else:
+            ascii_1 = ord(item)
+            ascii_1 += 1
+            # print(ascii_1)
+            while chr(ascii_1) not in hash1:
+                ascii_1 += 1
+                if ascii_1 > 122:
+                    break
+            if ascii_1 < 123:
+                ans = ans + chr(ascii_1)
+                hash1[chr(ascii_1)] -= 1
+                break
+for i in range(len(s_arr)):
+    if s_arr[i] in hash1:
+        if hash1[s_arr[i]] > 0:
+            ans = ans + s_arr[i]
+            hash1[s_arr[i]] -= 1
+ans2 = ""
+if ans <= target:
+    ascii_1 = ord(target[0])
+    ascii_1 += 1
+    while chr(ascii_1) not in copy_hash1:
+        ascii_1 += 1
+        if ascii_1 > 122:
+            # print("")
+            break
+        # print(ascii_1)
+    if ascii_1 < 123:
+        copy_hash1[chr(ascii_1)] -= 1
+        # print(copy_hash1)
+        ans2 += chr(ascii_1)
+for i in range(len(s_arr)):
+    if s_arr[i] in copy_hash1:
+        if copy_hash1[s_arr[i]] > 0:
+            ans2 = ans2 + s_arr[i]
+            copy_hash1[s_arr[i]] -= 1
+print(ans,ans2)
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''s = "001110101101101111"
+k = 10
+ans = []
+for i in range(len(s)):
+    count = 0
+    j = i
+    str1 = ""
+    while count <= k and j < len(s):
+        if s[j] == "1":
+            count += 1
+        str1 += s[j]
+        if count == k:
+            ans.append(str1)
+        j = j + 1
+# ans.append("11100")
+ans.sort(key=lambda a : len(a))
+ans = [int(item) for item in ans]
+ans.sort()
+print(str(ans[0]))'''
+
+
+
+
+
+
+
+
+
+
+'''target = "he"
+ans = []
+stack = []
+stack.append("a")
+for i in range(len(target)):
+    count = 1
+    while stack[-1] != target[i]:
+        str1 = "".join(stack)
+        ans.append(str1)
+        stack.pop()
+        chr1 = chr(97+count)
+        stack.append(chr1)
+        count += 1
+    str1 = "".join(stack)
+    ans.append(str1)
+    stack.append("a")
+print(ans)'''
+
+
+
+
+
+
+
+
+
+'''num = "?6?6?000?3"
 first_half = 0
 second_half = 0
 alice_count = 0
@@ -101,7 +416,7 @@ print(second_half_alice_count,second_half_bob_count)
 print(first_half,second_half)
 print(count_q_first_half,count_q_second_half)
 print(first_half_alice_count,first_half_bob_count)
-print(alice_count,bob_count)
+print(alice_count,bob_count)'''
 
 
 
