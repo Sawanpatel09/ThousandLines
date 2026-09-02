@@ -1,4 +1,122 @@
-nums = [4,3,23,84,34,88,44,44,18,15]
+n = 10
+count = 0
+for i in range(2,n+1):
+    j = 2
+    while i >= j * j:
+        if i % j == 0:
+            break
+        j = j + 1
+    else:
+        count += 1
+print(count)
+
+
+
+
+
+
+
+'''num = 23
+str1 = str(num)
+check =  ""
+for i in range(len(str1)):
+    check += str1[i]
+    if check == "1":
+        print(False)
+        break
+        # return False
+    else:
+        j = 2
+        while int(check) >= j * j:
+            if int(check) % j == 0:
+                print(False)
+                break
+            j = j + 1
+        else:
+            pass
+check2 = ""
+for i in range(len(str1)-1,-1,-1):
+    check2 = str1[i] + check2
+    if check2 == "1":
+        print(False)
+        break
+    else:
+        j = 2
+        while int(check2) >= j * j:
+            if int(check2) % j == 0:
+                print(check2)
+                print(False)
+                break
+            j = j + 1
+        else:
+            pass
+print(True)'''
+
+
+
+
+
+
+
+
+'''nums = [-87,60,-30,-67,74,55,76,-53]
+min1 = float('inf')
+max1 = float('-inf')
+min1_index = 0
+max1_index = 0
+for i in range(len(nums)):
+    if nums[i] > max1:
+        max1 = nums[i]
+        max1_index = i
+    if nums[i] < min1:
+        # print(nums[i])
+        min1 = nums[i]
+        min1_index = i
+print(max1_index,min1_index)
+from_front = float('inf')
+if min1_index < max1_index:
+    sum1 = (min1_index + 1)
+    sum1 = sum1 + ((max1_index+1) - (min1_index+1))
+    from_front = sum1
+elif min1_index > max1_index:
+    sum1 = (max1_index + 1)
+    sum1 = sum1 +((min1_index+1) - (max1_index+1))
+    from_front = sum1
+from_back = float('inf')
+if min1_index < max1_index:
+    sum1 = len(nums) - max1_index
+    cal1 = sum1
+    sum1 = sum1 + ((len(nums) - min1_index) - cal1)
+    from_back = sum1
+elif min1_index > max1_index:
+    sum1 = len(nums) - min1_index
+    cal1 = sum1
+    sum1 = sum1 + ((len(nums) - max1_index) - cal1)
+    from_back = sum1
+from_both_side = float('inf')
+if min1_index < max1_index:
+    sum1 = (min1_index + 1)
+    sum1 = sum1 + (len(nums) - max1_index)
+    from_both_side = sum1
+elif min1_index > max1_index:
+    sum1 = (max1_index + 1)
+    sum1 = sum1 + (len(nums) - min1_index)
+    from_both_side = sum1
+min1 = float('inf')
+if min1_index == max1_index:
+    check1 = len(nums) - max1_index
+    check2 = (max1_index + 1)
+    min1 = min(check1,check2)
+ans = min(from_front,from_back,from_both_side,min1)
+print(ans)
+'''
+
+
+
+
+
+
+'''nums = [4,3,23,84,34,88,44,44,18,15]
 limit = 3
 nums1 = []
 for i in range(len(nums)):
@@ -28,7 +146,7 @@ for item in nums1:
     element1 = item[0]
     idx = item[1]
     ans[idx] = element1
-print(ans)
+print(ans)'''
 
 
 
