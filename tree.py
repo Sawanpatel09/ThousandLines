@@ -1,4 +1,23 @@
-n = 10
+nums1 = [4,6]
+min1 = float('inf')
+for i in range(len(nums1)):
+    min1 = min(min1,nums1[i])
+if min1 % 2 != 0:
+    print(True)
+else:
+    for i in range(len(nums1)):
+        if nums1[i] % 2 != 0:
+            print(False)
+            break
+    else:
+        print(True)
+
+
+
+
+
+
+'''n = 10
 count = 0
 for i in range(2,n+1):
     j = 2
@@ -8,7 +27,7 @@ for i in range(2,n+1):
         j = j + 1
     else:
         count += 1
-print(count)
+print(count)'''
 
 
 
