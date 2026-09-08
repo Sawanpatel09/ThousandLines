@@ -1,4 +1,106 @@
-nums1 = [4,6]
+n = 1002
+ans = 0
+if n >= 1000:
+    ans = (n - 1000) + 1
+print(ans)
+
+
+
+
+
+
+
+'''s = "abc"
+n = len(s)
+M= (10 ** 9) + 7
+dp = []
+for i in range(2001):
+    dp.append(-1)
+prev = [0] * (n+1)
+last_seen = [0] * 26
+def solve(n):
+    if n == 0:
+        return 1
+    if dp[n] != -1:
+        return dp[n]
+    total = (2*solve(n-1) + M) % M
+    if prev[n] != 0:
+        duplicates = solve(prev[n] - 1)
+        total = (total - duplicates + M) % M
+    dp[n] = total
+    return dp[n]
+for i in range(1,n+1):
+    idx = ord(s[i-1]) - ord("a")
+    prev[i] = last_seen[idx]
+    last_seen[idx] = i
+a = (solve(n)-1 + M) % M
+print(a)'''
+
+
+
+
+
+'''s = "rabbbit"
+t = "rabbit"
+dp = []'''
+
+
+
+
+
+
+
+
+
+'''groupSizes = [2,1,3,3,3,2]
+hash1 = {}
+ans = []
+for i in range(len(groupSizes)):
+    if groupSizes[i] not in hash1:
+        hash1[groupSizes[i]] = [i]
+    else:
+        hash1[groupSizes[i]].append(i)
+    if len(hash1[groupSizes[i]]) == groupSizes[i]:
+        ans.append(hash1[groupSizes[i]])
+        hash1[groupSizes[i]] = []
+print(ans)'''
+
+
+
+
+
+
+
+
+'''nums = [6,3,2,0,4,10,5]
+k = 1
+max_value = [nums[0]]
+min_value = [nums[-1]]
+for i in range(len(nums)):
+    a = max(nums[i],max_value[-1])
+    max_value.append(a)
+for i in range(len(nums)-1,-1,-1):
+    b = min(nums[i],min_value[-1])
+    min_value.append(b)
+min_value.reverse()
+max_value.pop(0)
+min_value.pop()
+print(max_value,min_value)
+# j = 0
+for i in range(len(max_value)):
+    if (max_value[i] - min_value[i]) <= k:
+        print(max_value[i],min_value[i])
+        print(i)
+        break
+else:
+    print(-1)'''
+
+
+
+
+
+
+'''nums1 = [4,6]
 min1 = float('inf')
 for i in range(len(nums1)):
     min1 = min(min1,nums1[i])
@@ -10,7 +112,7 @@ else:
             print(False)
             break
     else:
-        print(True)
+        print(True)'''
 
 
 
