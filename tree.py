@@ -1,9 +1,36 @@
-n = 1002
+n = 1004590
+n_str1 = str(n)
+str1 = "999"
+str2 = ""
+list1 = []
+for i in range(1,6):
+    str2 = str2 + str1
+    list1.append(str2)
 ans = 0
-if n >= 1000:
-    ans = (n - 1000) + 1
+for item in list1:
+    if int(item) <= n:
+        ans = ans + (n - int(item))
+    else:
+        break
 print(ans)
 
+
+
+
+
+
+
+
+# print(1004590 - 999999)
+
+
+
+# n = 1002
+# ans = 0
+# if n >= 1000:
+#     ans = (n - 1000) + 1
+# print(ans)
+# c
 
 
 
