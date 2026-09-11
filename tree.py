@@ -1,4 +1,13 @@
-n = 1004590
+score = [[10,6,9,1],[7,5,11,2],[4,8,3,15]]
+k = 2
+score.sort(key=lambda x : x[k],reverse=True)
+print(score)
+
+
+
+
+
+'''n = 1004590
 n_str1 = str(n)
 str1 = "999"
 str2 = ""
@@ -13,7 +22,7 @@ for item in list1:
     else:
         break
 print(ans)
-
+'''
 
 
 
