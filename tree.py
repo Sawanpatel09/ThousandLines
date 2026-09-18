@@ -1,7 +1,268 @@
-score = [[10,6,9,1],[7,5,11,2],[4,8,3,15]]
+
+
+
+
+
+
+'''arr = [3,3,3]
+target = 6
+n = len(arr)
+best_so_far = float('inf')
+best_ending_before = [float('inf')] * n   # best window length fully ending at or before index i
+ans = float('inf')
+
+sum1 = 0
+i = 0
+for j in range(n):
+    sum1 += arr[j]
+    while sum1 > target:
+        sum1 -= arr[i]
+        i += 1
+    if sum1 == target:
+        count_lenght = j - i + 1
+        if count_lenght < best_so_far:
+            best_so_far = count_lenght
+        if i > 0 and best_ending_before[i - 1] != float('inf'):
+            total = count_lenght + best_ending_before[i - 1]
+            if total < ans:
+                ans = total
+    best_ending_before[j] = best_so_far
+print(ans)'''
+
+
+# arr = [3,3,3,3]
+# target = 6
+#
+# subarrays = []
+#
+# i = 0
+# j = 0
+# sum1 = 0
+# count_lenght = 0
+# last = False
+# while j < len(arr):
+#     if sum1 < target:
+#         sum1 += arr[j]
+#         j += 1
+#         count_lenght += 1
+#     elif sum1 > target:
+#         sum1 -= arr[i]
+#         i += 1
+#         count_lenght -= 1
+#     else:
+#         subarrays.append((i, j - 1, count_lenght))
+#         sum1 -= arr[i]
+#         i += 1
+#         count_lenght -= 1
+# if sum1 == target:
+#     subarrays.append((i, j - 1, count_lenght))
+# # if last == True:
+# #     sum1 -= arr[i]
+# #     count_lenght -= 1
+# #     subarrays.append((i+1, j - 1, count_lenght))
+#
+#
+# print(subarrays)
+#
+# min_length = float('inf')
+#
+# for x in range(len(subarrays)):
+#
+#     start1 = subarrays[x][0]
+#     end1 = subarrays[x][1]
+#     length1 = subarrays[x][2]
+#
+#     for y in range(x + 1, len(subarrays)):
+#
+#         start2 = subarrays[y][0]
+#         end2 = subarrays[y][1]
+#         length2 = subarrays[y][2]
+#
+#         # Non-overlapping
+#         if end1 < start2 or end2 < start1:
+#
+#             total = length1 + length2
+#
+#             if total < min_length:
+#                 min_length = total
+#
+#
+# if min_length == float('inf'):
+#     print(-1)
+# else:
+#     print(min_length)
+
+
+
+
+'''arr = [3, 3, 3,3]
+target = 6
+
+min_lenght1 = float('inf')
+min_lenght2 = float('inf')
+
+count_lenght = 0
+sum1 = 0
+
+i = 0
+j = 0
+
+prev_end = -1
+
+
+while j < len(arr):
+
+    if sum1 < target:
+        sum1 += arr[j]
+        j += 1
+        count_lenght += 1
+
+    elif sum1 > target:
+        sum1 -= arr[i]
+        i += 1
+        count_lenght -= 1
+
+    else:
+        # We found one valid subarray
+        start = i
+        end = j - 1
+        length = count_lenght
+
+        # First valid subarray
+        if min_lenght1 == float('inf'):
+            min_lenght1 = length
+            prev_end = end
+
+        # Current subarray does not overlap with previous one
+        elif start > prev_end:
+            if length < min_lenght1:
+                min_lenght2 = min_lenght1
+                min_lenght1 = length
+                prev_end = end
+
+            elif length < min_lenght2:
+                min_lenght2 = length
+
+        # Move window forward
+        sum1 = 0
+        count_lenght = 0
+
+        i = i + 1
+        j = i
+
+
+if min_lenght1 != float('inf') and min_lenght2 != float('inf'):
+    print(min_lenght1 + min_lenght2)
+else:
+    print(-1)'''
+
+
+
+
+
+'''arr = [3,3,3]
+target = 6
+min_lenght1 = float('inf')
+min_lenght2 = float('inf')
+count_lenght = 0
+prev = 0
+sum1 = 0
+i = 0
+j = 0
+while j < len(arr):
+    if sum1 < target:
+        sum1 += arr[j]
+        j = j + 1
+        count_lenght += 1
+    elif sum1 > target:
+        sum1 -= arr[i]
+        if i < j:
+            i = i + 1
+        else:
+            j = j + 1
+        count_lenght -= 1
+    else:
+        if min_lenght1 >= count_lenght:
+            if prev >= i:
+                min_lenght1 = count_lenght
+            else:
+                min_lenght2 = min_lenght1
+                min_lenght1 = count_lenght
+                prev = (j) - 1
+        elif min_lenght2 >= count_lenght > min_lenght1:
+            min_lenght2 = count_lenght
+            prev = (j) - 1
+        j = i
+        i = i + 1
+        j = j + 1
+        sum1 = 0
+        count_lenght = 0
+if sum1 == target:
+    if min_lenght1 >= count_lenght:
+        if prev >= i:
+            min_lenght1 = count_lenght
+        else:
+            min_lenght2 = min_lenght1
+            min_lenght1 = count_lenght
+    elif min_lenght2 >= count_lenght > min_lenght1:
+        min_lenght2 = count_lenght
+print(min_lenght1,min_lenght2)'''
+
+
+
+
+
+
+
+'''n = 3
+ans = []
+def solve(curr,open_count,closed_count):
+    if len(curr) == 2*n:
+        ans.append(curr)
+        return
+    if open_count < n:
+        solve(curr + "(",open_count +1,closed_count)
+    if closed_count < open_count:
+        solve(curr + ")",open_count,closed_count+1)
+    return
+curr = ""
+open_count = 0
+closed_count  = 0
+a = solve(curr,open_count,closed_count)'''
+
+'''A = [[1,1,0],[0,1,0],[0,1,0]]
+B = [[0,0,0],[0,1,1],[0,0,1]]
+n = len(A)
+max_ans = 0
+def count_index(A,B,rowoff,colloff):
+    count_now =0
+    for i in range(n):
+        for j in range(n):
+            b_i = i + rowoff
+            b_j = j + colloff
+            if b_i < 0 or b_i >= n or b_j < 0 or b_j >= n:
+                continue
+            if A[i][j] == 1 and  B[b_i][b_j] == 1:
+                count_now += 1
+    return count_now
+for rowoff in range(-n+1,n):
+    for colloff in range(-n+1,n):
+        current_count = count_index(A,B,rowoff,colloff)
+        max_ans = max(max_ans,current_count)
+print(max_ans)'''
+
+
+
+
+
+
+
+
+
+'''score = [[10,6,9,1],[7,5,11,2],[4,8,3,15]]
 k = 2
 score.sort(key=lambda x : x[k],reverse=True)
-print(score)
+print(score)'''
 
 
 
