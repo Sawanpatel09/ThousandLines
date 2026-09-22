@@ -1,3 +1,94 @@
+nums = [4,3,2,7,8,2,3,1]
+i = 1
+while (i - 1) < len(nums):
+    if i == nums[i-1]:
+        i = i + 1
+    elif nums[i-1] == nums[nums[i-1]-1]:
+        i = i + 1
+    else:
+        nums[nums[i-1]-1],nums[i-1] = nums[i-1],nums[nums[i-1]-1]
+# print(nums)
+n = len(nums)
+ans = []
+for i in range(1,n+1):
+    if i == nums[i-1]:
+        pass
+    else:
+        ans.append(nums[i-1])
+print(ans)
+
+
+
+
+
+
+
+
+
+
+'''s = "ABB"
+k = 1
+max1 = 0
+for i in range(27):
+    count_k = 0
+    m = 0
+    n = 0
+    while n < len(s):
+        if s[n] != chr(65+i):
+            if k > count_k:
+                count_k += 1
+                n = n + 1
+            else:
+                max1 = max((n)-m,max1)
+                if s[m] != chr(65 + i):
+                    count_k -= 1
+                    m = m + 1
+                else:
+                    m = m + 1
+        else:
+            n = n + 1
+    max1 = max((n)-m,max1)
+print(max1)'''
+
+
+
+
+
+
+'''radius = 1
+xCenter = 0
+yCenter = 1
+x1 = -3
+y1 = 0
+x2 = -1
+y2 = 1
+if (x1 <= (xCenter+radius)) and x1 > x2 :
+    pass
+elif x2 >=  xCenter - radius and x2 < 0:
+    pass
+else:
+    print(False)
+if (y1 <= (yCenter + radius)) and y1 > y2:
+    pass
+elif y2 >= yCenter - radius and y2 < 0:
+    pass
+else:
+    print(False)'''
+
+
+
+
+
+# if x2 + radius <= xCenter:
+#     print(True)
+# elif xCenter + radius >= x1:
+#     print(True)
+# elif y2 + radius <= yCenter:
+#     print(True)
+# elif yCenter + radius >= y1:
+#     print(True)
+# else:
+#     print(False)
 
 
 
