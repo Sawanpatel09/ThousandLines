@@ -1,4 +1,24 @@
-nums = [4,3,2,7,8,2,3,1]
+# s = "ssssss"
+# count = 0
+# set1 = set()
+# for i in range(len(s)):
+#     if s[i] not in set1:
+#         set1.add(s[i])
+#     else:
+#         count += 1
+#         set1 = set()
+#         set1.add(s[i])
+# if set1 != set():
+#     count += 1
+# print(count)
+
+
+
+
+
+
+
+'''nums = [4,3,2,7,8,2,3,1]
 i = 1
 while (i - 1) < len(nums):
     if i == nums[i-1]:
@@ -15,7 +35,7 @@ for i in range(1,n+1):
         pass
     else:
         ans.append(nums[i-1])
-print(ans)
+print(ans)'''
 
 
 
