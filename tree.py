@@ -1,3 +1,54 @@
+s = "(a)(a)(a)aaa"
+knowledge = [["a","yes"]]
+hash1 = {}
+ans = ""
+for item in knowledge:
+    a = item[0]
+    a = "("+a + ")"
+    b = item[1]
+    hash1[a] = b
+print(hash1)
+str1 = ""
+for i in range(len(s)):
+    if s[i] == "(" or str1 != "":
+        str1 += s[i]
+    if s[i] == ")":
+        if str1 in hash1:
+            ans += hash1[str1]
+        else:
+            ans += "?"
+        str1 = ""
+    if str1 == "" and s[i] != ")":
+        ans += s[i]
+print(ans)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# a = 18
+# b =
+# 6
+# while b:
+#     a,b = b,a%b
+# print(a)
+
+
+
+
+
+
+
+
+
 # s = "ssssss"
 # count = 0
 # set1 = set()
