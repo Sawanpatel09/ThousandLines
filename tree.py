@@ -1,4 +1,65 @@
-s = "(a)(a)(a)aaa"
+s = "a(ba)"
+stack = []
+for i in range(len(s)):
+    if s[i] == ")":
+        temp = ""
+        while stack[-1] != "(":
+            temp = stack[-1] + temp
+            stack.pop()
+        stack.pop()
+        temp2 = ""
+        for item in temp:
+            temp2 = item + temp2
+        stack.append(temp2)
+    else:
+        stack.append(s[i])
+ans = ""
+for item2 in stack:
+    ans += item2
+print(ans)
+
+
+
+
+
+
+
+
+'''s = "(ed(et(oc))(ab)el)"
+stack = []
+ans = ""
+i = 0
+while i < len(s):
+    if ans == "":
+        if s[i] == ")":
+            while stack[-1] != "(":
+                ans = stack[-1] + ans
+                stack.pop()
+            stack.pop()
+        else:
+            stack.append(s[i])
+        i = i + 1
+    else:
+        while s[i] != ")":
+            ans = ans + s[i]
+            i = i + 1
+        i = i + 1
+        while stack[-1] != "(":
+            ans = stack[-1] + ans
+            stack.pop()
+        stack.pop()
+    temp = ""
+    for item in ans:
+        temp = item + temp
+    ans = temp
+print(ans)
+# print(i)'''
+
+
+
+
+
+'''s = "(a)(a)(a)aaa"
 knowledge = [["a","yes"]]
 hash1 = {}
 ans = ""
@@ -20,7 +81,7 @@ for i in range(len(s)):
         str1 = ""
     if str1 == "" and s[i] != ")":
         ans += s[i]
-print(ans)
+print(ans)'''
 
 
 
