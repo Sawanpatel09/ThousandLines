@@ -1,4 +1,44 @@
-s = "a(ba)"
+s = "leetcode"
+hash1 = {}
+list1 = [""] * len(s)
+
+for i in range(len(s)):
+    if s[i] in {"a","e","i","o","u"}:
+        if s[i] not in hash1:
+            hash1[s[i]] = 1
+        else:
+            hash1[s[i]] += 1
+    else:
+        list1[i] = s[i]
+list_hash2 = []
+for item in hash1.items():
+    list_hash2.append(list(item))
+for i in range(len(list_hash2)):
+    for j in range(len(list_hash2)-i-1):
+        if list_hash2[j][1] < list_hash2[j+1][1]:
+            # print(list_hash2)
+            list_hash2[j],list_hash2[j+1] = list_hash2[j+1], list_hash2[j]
+list_hash2.reverse()
+for i in range(len(list1)):
+    if list1[i] == "":
+        if list_hash2[-1][1] != 0:
+            list1[i] = list_hash2[-1][0]
+            list_hash2[-1][1] -= 1
+        else:
+            list_hash2.pop()
+            list1[i] = list_hash2[-1][0]
+            list_hash2[-1][1] -= 1
+print(list1)
+
+print(list_hash2)
+
+
+
+
+
+
+
+'''s = "a(ba)"
 stack = []
 for i in range(len(s)):
     if s[i] == ")":
@@ -17,7 +57,7 @@ ans = ""
 for item2 in stack:
     ans += item2
 print(ans)
-
+'''
 
 
 
