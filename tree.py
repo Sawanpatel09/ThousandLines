@@ -1,4 +1,43 @@
-s = "leetcode"
+grid = [["(","("],[")","("],["(","("],["(","("]]
+m = len(grid)
+n = len(grid[0])
+if (m + n - 1) % 2 ==1:
+    # return
+    print(False)
+if grid[0][0] == ")" or grid[m-1][n-1] == "(":
+    # return
+    print(False)
+dp = [[[-1 for _ in range(201)] for _j in range(101)]for _i in range(101)]
+def solve(i,j,open_count,grid):
+    if grid[i][j] == "(":
+        open_count += 1
+    else:
+        open_count -= 1
+    if open_count < 0:
+        return False
+    if dp[i][j][open_count] != -1:
+        return dp[i][j][open_count]
+    if i == m - 1 and j == n-1:
+        dp[i][j][open_count] = open_count == 0
+        return dp[i][j][open_count]
+    if i + 1 < m:
+        if solve(i+1,j,open_count,grid):
+            dp[i][j][open_count] = True
+            return dp[i][j][open_count]
+    if j+1 < n:
+        if solve(i,j+1,open_count,grid):
+            dp[i][j][open_count] = True
+            return dp[i][j][open_count]
+    dp[i][j][open_count] = False
+print(solve(0,0,0,grid))
+# print(dp)
+
+
+
+
+
+
+'''s = "leetcode"
 hash1 = {}
 list1 = [""] * len(s)
 
@@ -30,7 +69,7 @@ for i in range(len(list1)):
             list_hash2[-1][1] -= 1
 print(list1)
 
-print(list_hash2)
+print(list_hash2)'''
 
 
 
