@@ -1,4 +1,75 @@
-grid = [["(","("],[")","("],["(","("],["(","("]]
+seq = "()(())()"
+ans = []
+a = []
+b = []
+for i in range(len(seq)):
+    if len(a) <= len(b):
+        if a and a[-1] != seq[i]:
+            a.pop()
+            ans.append(0)
+        elif a == [] and seq[i] == ")":
+            b.append(")")
+            ans.append(1)
+        else:
+            a.append(seq[i])
+            ans.append(0)
+    else:
+        ans.append(1)
+        if b and b[-1] != seq[i]:
+            b.pop()
+        else:
+            b.append(seq[i])
+print(ans)
+
+
+
+
+
+
+
+
+'''seq = "(()())"
+ans = []
+a = []
+b = []
+for i in range(len(seq)):
+    if len(a) <= len(b):
+        # print("jbdsjb")
+        if a and a[-1] != seq[i] and a[-1] == "(" and seq[i] == ")":
+            a.pop()
+            ans.append(0)
+        elif a == [] and seq[i] == "(":
+            a.append(seq[i])
+            ans.append(0)
+        elif seq[i] == ")":
+            if b and b[-1] != seq[i]:
+                b.pop()
+            b.append(seq[i])
+            ans.append(1)
+        else:
+            a.append("(")
+            ans.append(0)
+    else:
+        if b and b[-1] != seq[i]:
+            b.pop()
+            print("jds")
+            ans.append(1)
+        else:
+            b.append(seq[i])
+            ans.append(1)
+    print(a,b)
+print(ans)'''
+
+
+
+
+
+
+
+
+
+
+'''grid = [["(","("],[")","("],["(","("],["(","("]]
 m = len(grid)
 n = len(grid[0])
 if (m + n - 1) % 2 ==1:
@@ -30,7 +101,7 @@ def solve(i,j,open_count,grid):
             return dp[i][j][open_count]
     dp[i][j][open_count] = False
 print(solve(0,0,0,grid))
-# print(dp)
+# print(dp)'''
 
 
 
