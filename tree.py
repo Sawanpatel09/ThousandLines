@@ -1,4 +1,88 @@
-seq = "()(())()"
+n = 1
+ans = []
+def solve(n,str1):
+    if len(str1) == n:
+        ans.append(str1)
+        return
+    if str1 != "":
+        if str1[-1] == "0":
+            solve(n,str1 + "1")
+        elif str1[-1] == "1":
+            solve(n,str1 + "1")
+            solve(n,str1 + "0")
+    else:
+        solve(n,str1 + "0")
+        solve(n,str1 + "1")
+    return
+solve(n,"")
+print(ans)
+
+
+
+
+'''n = 3
+ans = []
+def solve(curr, open_count, closed_count):
+    if len(curr) == 2 * n:
+        ans.append(curr)
+        return
+    print(curr,"first",open_count,closed_count)
+    if open_count < n:
+        solve(curr + "(", open_count + 1, closed_count)
+    print(curr,open_count,closed_count)
+    if closed_count < open_count:
+        solve(curr + ")", open_count, closed_count + 1)
+    return
+
+
+curr = ""
+open_count = 0
+closed_count = 0
+a = solve(curr, open_count, closed_count)
+print(ans)'''
+
+
+
+
+'''matches = [[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]
+hash1 = {}
+for i in range(len(matches)):
+    b = matches[i][1]
+    if b not in hash1:
+        hash1[b] = 1
+    else:
+        hash1[b] += 1
+# print(hash1)
+ans = []
+for i in range(len(matches)):
+    if matches[i][0] not in hash1:
+        ans.append(matches[i][0])
+ans1 = []
+for key, value in hash1.items():
+    if value == 1:
+        ans1.append(key)
+
+set1 = set(ans)
+set2 = set(ans1)
+ans = list(set1)
+ans1 = list(set2)
+print(ans,ans1)
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''seq = "()(())()"
 ans = []
 a = []
 b = []
@@ -20,7 +104,7 @@ for i in range(len(seq)):
         else:
             b.append(seq[i])
 print(ans)
-
+'''
 
 
 
