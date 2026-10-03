@@ -1,4 +1,65 @@
-n = 1
+s = "(()"
+left = 0
+right = 0
+max_len = 0
+for i in range(len(s)):
+    if s[i] == "(":
+        left += 1
+    else:
+        right += 1
+    if left < right:
+        left = 0
+        right = 0
+    elif left == right:
+        max_len = max(max_len,right * 2)
+left = 0
+right = 0
+for i in range(len(s)-1,-1,-1):
+    if s[i] == "(":
+        left += 1
+    else:
+        right += 1
+    if left > right:
+        left = 0
+        right = 0
+    elif left == right:
+        max_len = max(max_len,right * 2)
+print(max_len)
+
+
+'''s = "(()"
+stack = [-1]
+max_len = 0
+for i in range(len(s)):
+    if s[i] == "(":
+        stack.append(i)
+    else:
+        stack.pop()
+        if not stack:
+            stack = [i]
+        max_len = max(max_len,i-stack[-1])
+print(max_len)'''
+
+
+
+
+# open_count = 0
+# close_count = 0
+# for i in range(len(s)):
+#     if s[i] == "(":
+#         open_count += 1
+#     else:
+#         close_count += 1
+# min1 = min(open_count,close_count)
+# ans = min1 + min1
+# print(ans)
+
+
+
+
+
+
+'''n = 1
 ans = []
 def solve(n,str1):
     if len(str1) == n:
@@ -15,7 +76,7 @@ def solve(n,str1):
         solve(n,str1 + "1")
     return
 solve(n,"")
-print(ans)
+print(ans)'''
 
 
 
