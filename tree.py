@@ -1,4 +1,28 @@
-s = "(()"
+s = "()"
+c
+
+
+
+
+
+
+'''s = "()"
+stack = []
+star_count = 0
+for i in range(len(s)):
+    if s[i] == "(":
+        stack.append("(")
+    elif stack and stack[-1] == "(":
+        stack.pop()
+    else:
+        stack.append("")'''
+
+
+
+
+
+
+'''s = "(()"
 left = 0
 right = 0
 max_len = 0
@@ -24,7 +48,7 @@ for i in range(len(s)-1,-1,-1):
         right = 0
     elif left == right:
         max_len = max(max_len,right * 2)
-print(max_len)
+print(max_len)'''
 
 
 '''s = "(()"
