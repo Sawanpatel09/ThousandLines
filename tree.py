@@ -1,5 +1,117 @@
-s = "()"
-c
+s = "()())()"
+# set1 = set()
+def solve(i,curr,count,s,maxlen,set1):
+    if count < 0:
+        return
+    if i == len(s):
+        if count == 0:
+            if len(curr) > maxlen:
+                maxlen = len(curr)
+                # set1.clear()
+            if len(curr) == maxlen:
+                # print(curr)
+                set1.add(tuple(curr))
+        return
+    if s[i] != "(" and s[i] != ")":
+        curr.append(s[i])
+        solve(i+1, curr,count,s,maxlen,set1)
+        curr.pop()
+    else:
+        curr.append(s[i])
+        if s[i] == "(":
+            solve(i+1,curr, count + 1, s, maxlen, set1)
+        else:
+            solve(i+1,curr, count - 1,s, maxlen, set1)
+        curr.pop()
+        solve(i+1,curr, count,s ,maxlen, set1)
+    print(set1)
+i = 0
+set1 = set()
+solve(i,[],0,s,0,set1)
+max1 = 0
+for item in set1:
+    max1 = max(max1,len(item))
+ans = []
+for item in set1:
+    if max1 == len(item):
+        ans.append(item)
+ans1 = []
+for item in ans:
+    a = "".join(item)
+    ans1.append(a)
+print(ans1)
+
+# print(max1)
+
+
+
+
+
+
+
+
+
+
+'''s = "()()()()()()()(((())))"
+sum1 = 0
+def solve(str1):
+    sum1 = 0
+    count_left = 0
+    count_right = 0
+    start = 0
+    for i in range(len(str1)):
+        if str1[i] == "(":
+            count_left += 1
+        else:
+            count_right += 1
+        if count_left == count_right:
+            if i - start == 1:
+                sum1 = sum1 + 1
+                start = i + 1
+                # return 1
+            else:
+                a = solve(str1[(start+1): i])
+                sum1 = sum1 + (2 * a)
+                start = i+1
+    return sum1
+print(solve(s))'''
+
+
+# solve(s,sum1)
+
+
+
+
+
+'''s = "(()    )"
+sum1 = 0
+def solve(str1,sum1):
+    if len(str1) == 2:
+        return 1
+    stack = []
+    start = 0
+    for i in range(len(str1)):
+        if str1[i] == "(":
+            stack.append("(")
+        else:
+            stack.pop()
+        if stack == []:
+            a = solve(str1[start:i+1],sum1)
+            start = i + 1
+            if a == 1:
+                sum1 += 1
+            else:
+                sum1 = sum1 + (2 * a)
+            return sum1
+solve(s,sum1)'''
+
+
+
+
+
+
+
+
 
 
 
