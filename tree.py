@@ -1,4 +1,53 @@
-s = "()())()"
+
+
+
+
+
+# from collections import deque
+# nums = [1, 3, -1, -3, 5, 3, 6, 7]
+# k = 3
+# dq = deque()
+# ans = []
+# for i in range(len(nums)):
+#     while dq and dq[0] < (i - k) + 1:
+#         dq.popleft()
+#     while dq and nums[dq[-1]] <= nums[i]:
+#         dq.pop()
+#     dq.append(i)
+#     if i > k - 1:
+#         ans.append(nums[dq[0]])
+# print(ans)
+
+
+
+
+
+'''import heapq
+
+nums = [1,-1]
+k = 1
+heap = []
+ans = []
+for i in range(len(nums)):
+    heapq.heappush(heap,[-nums[i],i])
+    if len(heap) >= k:
+        pop1 = heapq.heappop(heap)
+        while True:
+            if (i - (k - 1)) <= pop1[1] <= i:
+                break
+            pop1 = heapq.heappop(heap)
+        ans.append(-(pop1[0]))
+        heapq.heappush(heap,pop1)
+        # print(heap)
+print(ans)'''
+
+
+
+
+
+
+
+'''s = "()())()"
 # set1 = set()
 def solve(i,curr,count,s,maxlen,set1):
     if count < 0:
@@ -39,7 +88,7 @@ ans1 = []
 for item in ans:
     a = "".join(item)
     ans1.append(a)
-print(ans1)
+print(ans1)'''
 
 # print(max1)
 
