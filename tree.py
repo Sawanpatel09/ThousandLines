@@ -1,3 +1,74 @@
+nums1 = [1,4,10,12]
+nums2 = [5,8,6,9]
+k1 = 2
+k2 = 2
+diff_array = []
+for i in range(len(nums1)):
+    a = abs(nums1[i] - nums2[i])
+    diff_array.append(a)
+# max_valu1 = max(diff_array)
+if max(diff_array) == 0:
+    # return
+    print(0)
+counting_array = [0] * (max(diff_array)+ 1)
+full_k = k1 + k2
+for item in diff_array:
+    counting_array[item] += 1
+print(counting_array)
+prev = 0
+for i in range(len(counting_array)-1, -1, -1):
+    counting_array[i] = counting_array[i] + prev
+    scope = min(full_k,counting_array[i])
+    # a = counting_array[i] - scope
+    counting_array[i] = counting_array[i] - scope
+    full_k -= scope
+    prev = scope
+# print(counting_array)
+ans = 0
+for i in range(len(counting_array)):
+    a = counting_array[i] * i
+    ans = ans + (a * i)
+print(ans)
+
+
+
+
+
+
+#
+# import heapq
+# nums1 = [7,5,0,12,14]
+# nums2 = [7,5,0,12,14]
+# k1 = 2
+# k2 = 9
+# diff_array = []
+# for i in range(len(nums1)):
+#     a = abs(nums1[i] - nums2[i])
+#     if a != 0:
+#         diff_array.append(-a)
+# full_k = k1 + k2
+# heapq.heapify(diff_array)
+# while diff_array and full_k > 0:
+#     pop1 = -(heapq.heappop(diff_array))
+#     pop1 -= 1
+#     full_k -= 1
+#     if pop1 != 0:
+#         break
+#         heapq.heappush(diff_array,-(pop1))
+# ans = 0
+# while diff_array:
+#     num1 = -(heapq.heappop(diff_array))
+#     ans = ans + (num1 * num1)
+# print(ans)
+
+
+
+
+
+
+
+
+
 
 
 
