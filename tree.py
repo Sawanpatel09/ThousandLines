@@ -1,4 +1,51 @@
-nums1 = [1,4,10,12]
+    from collections import deque
+    grid = [[2,1,1],[1,1,0],[0,1,1]]
+    direction = [[0,1],[0,-1],[1,0],[-1,0]]
+    dque1 = deque()
+    m = len(grid)
+    n = len(grid[0])
+    freshcount = 0
+    for i in range(m):
+        for  j in range(n):
+            if grid[i][j] == 2:
+                dque1.append([i,j])
+            else:
+                if grid[i][j] == 1:
+                    freshcount += 1
+    if freshcount == 0:
+        print(0)
+        # return
+    minutes = 0
+    while dque1:
+        N = len(dque1)
+        while N:
+            curr = dque1.popleft()
+            i = curr[0]
+            j = curr[1]
+            for dir in direction:
+                new_i = i + dir[0]
+                new_j = j + dir[1]
+                if new_i >= 0 and new_i < m and new_j >= 0 and new_j < n and grid[new_i][new_j] == 1:
+                    grid[new_i][new_j] = 2
+                    dque1.append([new_i,new_j])
+                    freshcount -= 1
+            N -= 1
+
+        minutes += 1
+
+    print(minutes - 1)
+
+
+
+
+
+
+
+
+
+
+
+'''nums1 = [1,4,10,12]
 nums2 = [5,8,6,9]
 k1 = 2
 k2 = 2
@@ -28,7 +75,7 @@ ans = 0
 for i in range(len(counting_array)):
     a = counting_array[i] * i
     ans = ans + (a * i)
-print(ans)
+print(ans)'''
 
 
 
