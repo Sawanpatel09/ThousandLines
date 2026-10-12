@@ -1,39 +1,78 @@
-    from collections import deque
-    grid = [[2,1,1],[1,1,0],[0,1,1]]
-    direction = [[0,1],[0,-1],[1,0],[-1,0]]
-    dque1 = deque()
-    m = len(grid)
-    n = len(grid[0])
-    freshcount = 0
-    for i in range(m):
-        for  j in range(n):
-            if grid[i][j] == 2:
-                dque1.append([i,j])
-            else:
-                if grid[i][j] == 1:
-                    freshcount += 1
-    if freshcount == 0:
-        print(0)
-        # return
-    minutes = 0
-    while dque1:
-        N = len(dque1)
-        while N:
-            curr = dque1.popleft()
-            i = curr[0]
-            j = curr[1]
-            for dir in direction:
-                new_i = i + dir[0]
-                new_j = j + dir[1]
-                if new_i >= 0 and new_i < m and new_j >= 0 and new_j < n and grid[new_i][new_j] == 1:
-                    grid[new_i][new_j] = 2
-                    dque1.append([new_i,new_j])
-                    freshcount -= 1
-            N -= 1
+nums = [2,6,5,8]
+k = 2
+frequency_count = [0] * 32
+for item in nums:
+    bin1 = str(bin(item))[2:]
+    bin1 = bin1[::-1]
+    for i in range(len(bin1)):
+        if bin1[i] == "1":
+            frequency_count[i] += 1
+ans = 0
+while k:
+    str1 = ""
+    found = False
+    for j in range(len(frequency_count)-1,-1,-1):
+        if frequency_count[j] != 0:
+            found = True
+        if frequency_count[j] != 0:
+            frequency_count[j] -= 1
+            str1 = str1 + "1"
+        else:
+            if found == True:
+                str1 = str1 + "0"
+    k = k - 1
+    a = 0
+    if str1 != "":
+        a = int(str1,2)
+    ans = ans + (a * a)
+print(ans)
 
-        minutes += 1
 
-    print(minutes - 1)
+
+
+
+
+
+
+
+
+
+'''from collections import deque
+grid = [[2,1,1],[1,1,0],[0,1,1]]
+direction = [[0,1],[0,-1],[1,0],[-1,0]]
+dque1 = deque()
+m = len(grid)
+n = len(grid[0])
+freshcount = 0
+for i in range(m):
+    for  j in range(n):
+        if grid[i][j] == 2:
+            dque1.append([i,j])
+        else:
+            if grid[i][j] == 1:
+                freshcount += 1
+if freshcount == 0:
+    print(0)
+    # return
+minutes = 0
+while dque1:
+    N = len(dque1)
+    while N:
+        curr = dque1.popleft()
+        i = curr[0]
+        j = curr[1]
+        for dir in direction:
+            new_i = i + dir[0]
+            new_j = j + dir[1]
+            if new_i >= 0 and new_i < m and new_j >= 0 and new_j < n and grid[new_i][new_j] == 1:
+                grid[new_i][new_j] = 2
+                dque1.append([new_i,new_j])
+                freshcount -= 1
+        N -= 1
+
+    minutes += 1
+
+print(minutes - 1)'''
 
 
 
