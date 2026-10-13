@@ -1,4 +1,34 @@
-nums = [2,6,5,8]
+nums = [1,-1,2,-2,3,-3]
+for i in range(len(nums)):
+    if nums[i] < 0:
+        nums[i] = -(nums[i])
+nums.sort()
+i =0
+j = len(nums) - 1
+ans = 0
+while i < j:
+    ans = ans + (nums[j] * nums[j])
+    ans = ans - (nums[i] * nums[i])
+    j = j - 1
+    i = i + 1
+# print(i,j)
+if i == j:
+    ans = ans + (nums[j] * nums[j])
+print(ans)
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [2,6,5,8]
 k = 2
 frequency_count = [0] * 32
 for item in nums:
@@ -26,7 +56,7 @@ while k:
         a = int(str1,2)
     ans = ans + (a * a)
 print(ans)
-
+'''
 
 
 
