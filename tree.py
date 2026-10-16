@@ -1,4 +1,83 @@
-nums = [1,-1,2,-2,3,-3]
+str1 = "001011"
+ans = [0] * len(str1)
+for i in range(len(str1)):
+    for j in range(len(str1)):
+        if str1[j] == "1":
+            check1 = abs(i-j)
+            ans[i] += check1
+print(ans)
+class Solution:
+    def minOperations(self, boxes: str) -> list[int]:
+        res=[0]*len(boxes)
+        balls,moves=0,0
+        for i in range(len(boxes)):
+            res[i]=balls+moves
+            moves=moves+balls
+            balls+=int(boxes[i])
+        balls,moves=0,0
+        for i in reversed (range (len(boxes))):
+            res[i]+=balls+moves
+            moves=moves+balls
+            balls+=int(boxes[i])
+        return res
+
+
+
+
+
+
+'''nums = 1
+sum = 10
+ans = ""
+while sum >= 9:
+    ans = ans + "9"
+    sum -= 9
+if sum > 0:
+    ans = ans + str(sum)
+while len(ans) < nums:
+    ans = ans + "0"
+print(ans)'''
+
+
+
+
+
+'''num = 151027
+sum = 1359250
+str1 = "1"
+range1 = num - 1
+while range1:
+    str1 += "0"
+    range1 -= 1
+max_square = 0
+ans = 0
+while len(str1) <= num:
+    check_square = 0
+    check_sum = 0
+    str_ans = ""
+    for i in range(len(str1)):
+        check_sum += int(str1[i])
+        str_ans = str_ans + str1[i]
+        check_square = check_square + (int(str1[i]) * int(str1[i]))
+    if check_sum == sum:
+        if max_square < check_square:
+            ans = str_ans
+            max_square = check_square
+    str1 = int(str1)
+    str1 = str1 + 1
+    str1 = str(str1)
+print(ans)'''
+
+
+
+
+
+
+
+
+
+
+'''nums = [1,-1,2,-2,3,-3]
 for i in range(len(nums)):
     if nums[i] < 0:
         nums[i] = -(nums[i])
@@ -14,7 +93,7 @@ while i < j:
 # print(i,j)
 if i == j:
     ans = ans + (nums[j] * nums[j])
-print(ans)
+print(ans)'''
 
 
 
