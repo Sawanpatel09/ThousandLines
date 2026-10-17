@@ -1,4 +1,37 @@
-str1 = "001011"
+nums = [18,43,34,16]
+list1 = []
+# hash1 = {}
+for i in range(len(nums)):
+    a = 0
+    for j in str(nums[i]):
+        a = a + int(j)
+    b = []
+    list1.append([a,nums[i],i])
+    # hash1[nums[i]] = i
+list1.sort()
+count = 0
+set1 = set()
+for i in range(len(list1)):
+    if list1[i][2] == i or i in set1:
+        continue
+    j = i
+    cycle_count =0
+    while j not in set1:
+        set1.add(j)
+        j = list1[j][2]
+        cycle_count += 1
+    count += cycle_count - 1c
+        # set1.add(hash1[a])
+print(count)
+# print(count//2)
+
+
+
+
+
+
+
+'''str1 = "001011"
 ans = [0] * len(str1)
 for i in range(len(str1)):
     for j in range(len(str1)):
@@ -20,7 +53,7 @@ class Solution:
             moves=moves+balls
             balls+=int(boxes[i])
         return res
-
+'''
 
 
 
