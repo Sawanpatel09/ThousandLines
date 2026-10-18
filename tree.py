@@ -1,4 +1,39 @@
-nums = [18,43,34,16]
+nums = [3,4,5,1,2]
+n = len(nums) + 1
+mod = 10 ** 9 + 7
+pt = []
+for i in range(n):
+    list1 = [1 for j in range(i+1)]
+    if list1 != []:
+        pt.append(list1)
+    for k in range(1,i):
+        pt[i][k] = (pt[i-1][k-1] + pt[i-1][k]) % mod
+
+def solve(nums):
+    n = len(nums)
+    if n < 3:
+        return 1
+    root = nums[0]
+    left_array = []
+    right_arry = []
+    for i in range(1,n):
+        if nums[i] < root:
+            left_array.append(nums[i])
+        else:
+            right_arry.append(nums[i])
+    x = solve(left_array) % mod
+    y = solve(right_arry) % mod
+    z = ((pt[n-1][len(left_array)] )% mod)
+    return (((x*y) % mod) * z) % mod
+
+print(solve(nums) % mod)
+
+
+
+
+
+
+'''nums = [18,43,34,16]
 list1 = []
 # hash1 = {}
 for i in range(len(nums)):
@@ -20,10 +55,10 @@ for i in range(len(list1)):
         set1.add(j)
         j = list1[j][2]
         cycle_count += 1
-    count += cycle_count - 1c
+    count += cycle_count
         # set1.add(hash1[a])
 print(count)
-# print(count//2)
+# print(count//2)'''
 
 
 
