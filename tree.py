@@ -1,4 +1,45 @@
-nums = [3,4,5,1,2]
+nums = [100,4,200,1,3,2]
+set1 = set(nums)
+max_len = 1
+for i in set1:
+    if i - 1 not in set1:
+        s = i
+        count = 1
+        while s + 1 in set1:c
+            s = s + 1
+            count += 1
+        max_len = max(max_len,count)
+print(max_len)
+
+
+
+
+
+
+
+
+
+
+
+# nums = [1,2,5,2,3]
+# target = 2
+# left = 0
+# right = len(nums) - 1
+# while left <= right:
+#     mid = (left + right)//2
+#     if nums[mid] < target:
+#         left = mid + 1
+#     elif nums[mid] > target:
+#         right = mid - 1
+#     else:
+
+
+
+
+
+
+
+'''nums = [3,4,5,1,2]
 n = len(nums) + 1
 mod = 10 ** 9 + 7
 pt = []
@@ -27,7 +68,7 @@ def solve(nums):
     return (((x*y) % mod) * z) % mod
 
 print(solve(nums) % mod)
-
+'''
 
 
 
