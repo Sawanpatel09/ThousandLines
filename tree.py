@@ -1,4 +1,75 @@
-nums = [100,4,200,1,3,2]
+nums = [7,6,5]
+sortable_array = nums.copy()
+sortable_array.sort()
+
+n = len(nums)
+result =0
+def find_lps(pattern):
+    m = len(pattern)
+    lps = [0] * m
+    lenght = 0
+    i = 1
+    while i < m:
+        if pattern[i] == pattern[lenght]:
+            lenght += 1
+            lps[i] = (lenght)
+            i = i + 1
+        else:
+            if lenght != 0:
+                lenght = lps[lenght - 1]
+            else:
+                lps[i] = 0
+                i = i + 1
+    return lps
+def check(pattern,text):
+    m = len(pattern)
+    n = len(text)
+    lps = find_lps(pattern)
+    find = False
+    i = 0
+    j = 0
+    while i < n:
+        if pattern[j] == text[i]:
+            i = i + 1
+            j = j + 1
+        if j == m:
+            return True
+        elif i < n and pattern[j] != text[i]:
+            if j != 0:
+                j = lps[j-1]
+            else:
+                i = i + 1
+    return False
+for k in range(1,n+1):
+    if n % k != 0:
+        continue
+    # flag = True
+    for l in range(0, n, k):
+        vect_sort1 = sortable_array[l:l+k]
+        vect_actual1 = nums[l:l+k]
+        # print(vect_sort1,vect_actual1,"jsigd")
+        if check(vect_sort1,vect_actual1 + vect_actual1) is False:
+            # flag = True
+            break
+    else:
+        result += k
+print(result)
+
+
+# a = "".join(["q","a"])
+# print(a)
+
+
+
+
+
+
+
+
+
+
+
+'''nums = [100,4,200,1,3,2]
 set1 = set(nums)
 max_len = 1
 for i in set1:
@@ -9,7 +80,7 @@ for i in set1:
             s = s + 1
             count += 1
         max_len = max(max_len,count)
-print(max_len)
+print(max_len)'''
 
 
 
