@@ -1,4 +1,159 @@
-nums = [7,6,5]
+grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
+m = len(grid)
+n = len(grid[0])
+count = 0
+def dfs(grid,r,c):
+    if r >= m or c >= n or r < 0 or c < 0:
+        return False
+    if grid[r][c] == 1:
+        return True
+    grid[r][c] = 1
+    left = dfs(grid,r,c-1)
+    right = dfs(grid,r,c+1)
+    up = dfs(grid,r-1,c)
+    down = dfs(grid,r+1,c)
+    return left and right and up and down
+
+for i in range(m):
+    for j in range(n):
+        if grid[i][j] == 0:
+            if dfs(grid,i,j) == True:
+                count+=1
+print(count)
+
+
+
+
+
+
+
+
+# nums = [0,3,2,1]
+
+
+
+
+
+
+
+'''nums = [1,0,2,3]
+zero = nums.index(0)
+def check(step):
+    for i in range(len(nums)):
+        prev = (zero + (i-1) * step ) % len(nums)
+        curr = (zero + i * step) % len(nums)
+
+        if nums[prev] > nums[curr]:
+            return False
+    return True
+ans = float('inf')
+if check(1):
+    ans = min(ans,zero)
+    ans = min(ans , len(nums) - zero + 2)
+if check(-1):
+    ans = min(ans, zero + 2)
+    ans = min(ans, len(nums) - zero)
+if ans == float('inf'):
+    return -1'''
+
+
+
+
+# depth = False
+# high = False
+# flag = False
+# find = 0
+# for i in range(1,len(nums)-1):
+#     if nums[i-1] >= nums[i] < nums[i+1] or nums[i-1] > nums[i] <= nums[i+1]:
+#         if flag == False:
+#             flag = True
+#         else:
+#             print(-1)
+#             break
+#         depth = True
+#         find = i
+#     if nums[i-1] <= nums[i] > nums[i+1] or nums[i-1] < nums[i] >= nums[i+1]:
+#         if flag == False:
+#             flag = True
+#         else:
+#             print(-1)
+#             break
+#         high = True
+#         find = i
+# print(depth)
+# if flag == False:
+#     if nums[0] > nums[-1]:
+#         print(1)
+#     else:
+#         print(0)
+# ans = float('inf')
+# if depth:
+#     if nums[-1] <= nums[0]:
+#         ans = min(find,(len(nums)-1)-find)
+#     else:
+#         print(-1)
+#
+# if high:
+#     if nums[-1] >= nums[0]:
+#         ans = (min(find,(len(nums)-1)-find)) + 1
+#     else:
+#         print(-1)
+# print(ans)
+
+
+
+
+
+
+
+
+
+'''s = "edc"
+
+def issorted(str1):
+    sorted_str1 = sorted(str1)
+    for i in range(len(str1)):
+        if sorted_str1[i] == str1[i]:
+            pass
+        else:
+            return False
+    return True
+
+
+def check(str1):
+    if issorted(str1) is True:
+        return 0
+    min_char = "z"
+    max_chr = "a"
+    for i in range(len(str1)):
+        min_char = min(min_char,str1[i])
+        max_chr = max(max_chr,str1[i])
+    if min_char == str1[0] or max_chr == str1[-1]:
+        return 1
+    max_mid = "z"
+    min_mid = "a"
+    for i in range(1,len(str1)-1):
+        print("jsj")
+        max_mid = min(max_mid,str1[i])
+        print(max_mid)
+        min_mid = max(min_mid,str1[i])
+    if str1[0] > max_mid and str1[-1] < min_mid:
+        return 3
+    else:
+        return 2
+
+check(s)'''
+
+
+
+
+
+
+
+
+
+
+'''nums = [7,6,5]
 sortable_array = nums.copy()
 sortable_array.sort()
 
@@ -53,7 +208,7 @@ for k in range(1,n+1):
             break
     else:
         result += k
-print(result)
+print(result)'''
 
 
 # a = "".join(["q","a"])
