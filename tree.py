@@ -1,4 +1,33 @@
-grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
+grid = [[0,2,1,0,0],[0,5,0,0,5],[0,0,1,0,0],[0,1,4,7,0],[0,2,0,0,8]]
+k = 5
+count = 0
+m = len(grid)
+n = len(grid[0])
+def dfs(grid,r,c):
+    if r < 0 or r >= m or c < 0 or c >= n:
+        return 0
+    if grid[r][c] == 0:
+        return 0
+    sum1 = grid[r][c]
+    grid[r][c] = 0
+    left = dfs(grid,r,c-1)
+    right = dfs(grid,r,c+1)
+    up = dfs(grid,r-1,c)
+    down = dfs(grid,r+1,c)
+    return sum1 + left + right + up + down
+for i in range(m):
+    for j in range(n):
+        if grid[i][j] != 0:
+            sum1 = 0
+            a = dfs(grid,i,j)
+            # print(a)
+            if a % k == 0:
+                count += 1
+
+print(count)
+
+
+'''grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
 m = len(grid)
 n = len(grid[0])
 count = 0
@@ -19,7 +48,7 @@ for i in range(m):
         if grid[i][j] == 0:
             if dfs(grid,i,j) == True:
                 count+=1
-print(count)
+print(count)'''
 
 
 
