@@ -1,3 +1,36 @@
+m = 1
+n = 4
+grid = []
+for i in range(m):
+    list1 = []
+    for j in range(n):
+        list1.append("#")
+    grid.append(list1)
+i = 0
+j = 0
+while True:
+    if j < m:
+        grid[j][i] = "."
+        j = j + 1
+    else:
+        if i < n:
+            grid[j-1][i] = "."
+            i = i + 1
+        else:
+            break
+print(grid)
+ans = []
+for item in grid:
+    ans.append("".join(item))
+print(ans)
+
+
+
+
+
+
+
+
 grid = [[0,2,1,0,0],[0,5,0,0,5],[0,0,1,0,0],[0,1,4,7,0],[0,2,0,0,8]]
 k = 5
 count = 0
