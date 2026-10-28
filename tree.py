@@ -1,4 +1,30 @@
-m = 1
+grid = [[1,2],[3,4]]
+m = len(grid)
+n = len(grid[0])
+
+dp = [set() for i in range(n)]
+# print(dp)
+dp[0].add(grid[0][0])
+for i in range(m):
+    for j in range(n):
+        if i == 0 and j == 0:
+            continue
+        value = grid[i][j]
+        reachable = dp[j] | (dp[j-1] if j > 0 else set())
+        # print(reachable)
+        dp[j] = {k ^ value for k in reachable}
+print(dp)
+print(min(dp[-1]))
+
+
+
+
+
+
+
+
+
+'''m = 1
 n = 4
 grid = []
 for i in range(m):
@@ -57,7 +83,7 @@ for i in range(m):
             if a % k == 0:
                 count += 1
 
-print(count)
+print(count)'''
 
 
 '''grid = [[1,1,1,1,1,1,1,0],[1,0,0,0,0,1,1,0],[1,0,1,0,1,1,1,0],[1,0,0,0,0,1,0,1],[1,1,1,1,1,1,1,0]]
