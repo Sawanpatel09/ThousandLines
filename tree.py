@@ -1,4 +1,50 @@
-grid = [[1,2],[3,4]]
+nums = [1,2,3]
+min1 = min(nums)
+sum1 = 0
+for item in nums:
+    sum1 = sum1 + (item - min1)
+print(sum1)
+
+
+
+
+
+
+
+
+'''grid = [[0,1,0],[0,0,1],[1,0,0]]
+m = len(grid)
+n = len(grid[0])
+mod = 10 ** 9 + 7
+left = 1
+up = 0
+dp = [[[-1,-1] for i in range(n+1)]for _ in range(m+1)]
+print(dp)
+def solve(grid,i,j,camfrom,dp):
+    if i >= m or j >= n:
+        return 0
+    if i == m-1 and j == n-1:
+        return 1
+    if dp[i][j][camfrom] != -1:
+        return dp[i][j][camfrom] % mod
+    if grid[i][j] == 1:
+        if camfrom == left:
+            dp[i][j][camfrom] = (solve(grid, i+1,j,up,dp)) % mod
+            return dp[i][j][camfrom] % mod
+        else:
+            dp[i][j][camfrom] = (solve(grid,i,j+1,left,dp)) % mod
+            return dp[i][j][camfrom] % mod
+    total_path = 0
+    total_path = (total_path + solve(grid,i,j+1,left,dp)) % mod
+    total_path = total_path + solve(grid,i+1,j,up,dp) % mod
+    dp[i][j][camfrom] = (total_path) % mod
+    return dp[i][j][camfrom]
+print(solve(grid,0,0,left,dp))'''
+
+
+
+
+'''grid = [[1,2],[3,4]]
 m = len(grid)
 n = len(grid[0])
 
@@ -15,7 +61,7 @@ for i in range(m):
         dp[j] = {k ^ value for k in reachable}
 print(dp)
 print(min(dp[-1]))
-
+'''
 
 
 
