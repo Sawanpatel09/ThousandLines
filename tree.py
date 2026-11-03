@@ -1,9 +1,16 @@
-nums = [1,2,3]
+# print(2^0)
+pref = [5,2,0,3,1]
+ans = [pref[0]]
+for i in range(1,len(pref)):
+    ans.append(pref[i]^pref[i-1])
+print(ans)
+
+'''nums = [1,2,3]
 min1 = min(nums)
 sum1 = 0
 for item in nums:
     sum1 = sum1 + (item - min1)
-print(sum1)
+print(sum1)'''
 
 
 
