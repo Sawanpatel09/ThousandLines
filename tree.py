@@ -1,9 +1,278 @@
-# print(2^0)
-pref = [5,2,0,3,1]
-ans = [pref[0]]
-for i in range(1,len(pref)):
-    ans.append(pref[i]^pref[i-1])
+s = "00000000"
+k = 3
+while len(s) > k:
+    count = 0
+    sum1 = 0
+    local = ""
+    for i in range(len(s)):
+        if count < k:
+            sum1 += int(s[i])
+            count += 1
+        else:
+            local += str(sum1)
+            sum1 = 0
+            count = 0
+            sum1 += int(s[i])
+            count += 1
+        # print(sum1)
+    if count != 0:
+        local += str(sum1)
+    # print(local)
+    s = local
+print(s)
+
+
+
+
+
+
+
+
+'''garbage = ["MMM","PGM","GP"]
+travel = [3,10]
+ans = 0
+campare = "PGM"
+# campare_index = 0
+temp = [0]
+for i in travel:
+    temp.append(temp[-1] + i)
+# print(temp)
+for campare_index in range(len(campare)):
+    last = 0
+    for i in range(len(garbage)):
+        for j in range(len(garbage[i])):
+            if garbage[i][j] == campare[campare_index]:
+                # temp = []
+                last = temp[i]
+                ans += 1
+            # ans += 1
+    ans = ans + last
 print(ans)
+'''
+
+
+
+
+# from collections import deque
+
+
+
+
+'''cost1 = 5
+cost2 = 4
+costBoth = 15
+need1 = 2
+need2 = 3
+total = 0
+if costBoth > (cost1 + cost2):
+    min1 = min(need1,need2)
+    total = total + (min1 * cost1)
+    total = total + (min1 * cost2)
+    need1 -= min1
+    need2 -= min1
+else:
+    min1 = min(need1,need2)
+    total = total + (min1 * costBoth)
+    need1 -= min1
+    need2 -= min1
+if need1:
+    if costBoth > cost1:
+        total = total + (cost1 * need1)
+        need1 = 0
+    else:
+        total = total + (costBoth * need1)
+        need1 = 0
+if need2:
+    if costBoth > cost2:
+        total = total + ( cost2 * need2)
+        need2 = 0
+    else:
+        total = total + (costBoth * need2)
+        need2 = 0
+print(total)'''
+
+# while need1 and need2:
+#     if costBoth > (cost1 + cost2):
+#         total += cost1
+#         total += cost2
+#         need1 -= 1
+#         need2 -= 1
+#     else:
+#         total += costBoth
+#         need1 -= 1
+#         need2 -= 1
+# while need1:
+#     if costBoth > cost1:
+#         total += cost1
+#         need1 -= 1
+#     else:
+#         total += costBoth
+#         need1 -= 1
+# while need2:
+#     if costBoth > cost2:
+#         total += cost2
+#         need2 -= 1
+#     else:
+#         total += costBoth
+#         need2 -= 1
+# print(total)
+
+
+
+
+
+
+
+
+'''n = 4
+costs = [1, 2, 3, 4]
+total = 0
+dp = [float('inf')] * (len(costs) + 1)
+# print(dp)
+for i in range(len(costs)):'''
+
+
+
+
+
+# last = 0
+# for i in range(len(costs)-1):
+#     if costs[i] <= costs[i+1]:
+#         cal = (i+1 - last) ** (i+1 - last)
+#         total = total + costs[i] + cal
+#         last = i+1
+# print(total)
+# total = total + (costs[last]) + ((len(costs)) - last) ** ((len(costs)) - last)
+# print(total)
+
+
+
+
+
+
+
+
+
+
+
+
+'''grid = [[1,1,0,0],[0,0,1,0],[0,0,1,0],[0,0,0,1]]
+count = 0
+count = 0
+for i in range(len(grid)):
+    for j in range(len(grid[0])):
+        if grid[i][j] == 1:
+            communicate = False
+            for k in range(len(grid[0])):
+                if j != k and grid[i][k] == 1:
+                    communicate = True
+                    break
+            if communicate:
+                count += 1
+            else:
+                for k in range(len(grid)):
+                    if i != k and grid[k][j] == 1:
+                        count += 1
+                        break
+print(count)'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''# from collections import deque
+import heapq
+servers = [3,3,2]
+tasks = [1,2,3,2,1,2]
+n = len(servers)
+free_servers = []
+for i in range(n):
+    heapq.heappush(free_servers,(servers[i],i))
+busy_servers = []
+ans = [0] * len(tasks)
+time = 0
+for j in range(len(tasks)):
+    time = max(j,time)
+    while busy_servers and busy_servers[0][0] <= time:
+        free_time, weight, index = heapq.heappop(busy_servers)
+        heapq.heappush(free_servers,(weight,index))
+    if not free_servers:
+        time = busy_servers[0][0]
+        while busy_servers and busy_servers[0][0] <= time:
+            free_time,weight,index = heapq.heappop(busy_servers)
+            heapq.heappush(free_servers,(weight,index))
+    weight,index = heapq.heappop(free_servers)
+    ans[j] = index
+    free_time = time + tasks[j]
+    heapq.heappush(busy_servers,(free_time,weight,index))
+print(ans)
+'''
+
+
+
+
+'''n = 3
+logs = [[1,3],[2,6],[1,5]]
+x = 5
+queries = [10,11]
+logs.sort(key=lambda a:a[1])
+sorted_quries = sorted((q,i) for i,q in enumerate(queries))
+count = {}
+ans = [0] * len(queries)
+
+left = 0
+right= 0
+active = 0
+
+for q, idx in sorted_quries:
+    while right < len(logs) and logs[right][1] <= q:
+        server = logs[right][0]
+        if server not in count:
+            count[server] = 0
+        if count[server] == 0:
+            active += 1
+
+        count[server] += 1
+        right += 1
+    while left < len(logs) and logs[left][1] < q - x:
+        server = logs[left][0]
+        count[server] -= 1
+        if count[server] == 0:
+            active -= 1
+        left += 1
+    ans[idx] = n - active
+print(ans)'''
+
+
+
+
+
+
+
+
+
+'''matrix = [[1,2,3],[4,5,6],[7,8,9],[10,11,12]]
+row1 = 2
+col1 = 1
+row2 = 0
+col2 = 1
+while True:
+
+'''
+
+
+
 
 '''nums = [1,2,3]
 min1 = min(nums)
